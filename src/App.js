@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import TopArtists from './pages/TopArtists';
 import TopTracks from './pages/TopTracks';
 import Playlists from './pages/Playlists';
+import NavBar from './components/NavBar'
 
 import './App.css';
 import UserContext from './context/UserContext';
@@ -16,27 +17,28 @@ import {
 
 const App = () => {
   const [token, setToken] = useState(undefined);
-  const [queryParams, setQueryParams] = useState({
-    time_range: 'medium_term',
-    limit: '50',
-    offset: '0'
-  });
+  // const [queryParams, setQueryParams] = useState({
+  //   time_range: 'medium_term',
+  //   limit: '50',
+  //   offset: '0'
+  // });
 
   return (
     <div>
       <Container maxWidth='sm'>
         <h1>Spotify Metadata</h1>
         <Router>
-          <UserContext.Provider value={{ token, setToken, queryParams, setQueryParams }}>
+          {/* <NavBar/> */}
+          <UserContext.Provider value={{ token, setToken}}>
             <Switch>
               <Route
                 exact
                 path='/'
                 render={(props) => <Home location={props.location} />}
               />
-              <Route exact path='/top-artists' render={TopArtists} />
-              <Route exact path='/top-tracks' render={TopTracks} />
-              <Route exact path='/playlists' render={Playlists} />
+              <Route exact path='/top-artists' component={TopArtists} />
+              <Route exact path='/top-tracks' component={TopTracks} />
+              <Route exact path='/playlists' component={Playlists} />
 
               <Redirect to='/' />
             </Switch>

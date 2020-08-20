@@ -1,21 +1,15 @@
-import React, {useEffect, useContext, useState} from 'react'
+import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
-import axios from 'axios'
+import axios from 'axios';
 // import spotifyRequest from '../utils/spotifyRequests'
 
 const TopArtists = () => {
-  
-  // const [artists, setArtists] = useState([])
-  const { token, queryParams } = useContext(UserContext);
+  const [artists, setArtists] = useState(undefined);
+  const { token } = useContext(UserContext);
   const history = useHistory();
-  
 
-  useEffect(() => {
-    if (!token) {
-      history.push('/');
-    }
-  }, [token, history]);
+  
 
   const getArtists = async () => {
     try {
@@ -23,27 +17,35 @@ const TopArtists = () => {
         method: 'get',
         url: 'https://api.spotify.com/v1/me/top/artists',
         headers: {
-          // Authorization: 'Bearer ' + token,
+          Authorization: 'Bearer ' + token,
           'Content-Type': 'application/json'
         },
-        data: queryParams
       });
 
-      const artistList = response.items.map((artist) => artist.name)
-      // setArtists(artistList)
+      const artistList = response.items.map((artist) => artist.name);
+      setArtists(artistList);
     } catch (err) {
       console.log(err.message);
     }
   };
 
-  
+  useEffect(() => {
+    if (!token) {
+      // history.push('/');
+    } else {
+      getArtists()
+    }
+  }, [history, token]);
 
   return (
     <div>
-      TopArtists
-      <p>Just a quick note that longer timeframes are going to be closer to what you actually listen to.</p>
+      Top Artists 
+      <p>
+        Just a quick note that longer timeframes are going to be closer to what
+        you actually listen to.
+      </p>
     </div>
   )
 }
 
-export default TopArtists
+export default TopArtists;

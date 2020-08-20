@@ -10,7 +10,7 @@ const TopTracks = () => {
     if (!token) {
       history.push('/');
     }
-  }, [token, history]);
+  }, [history, token]);
 
   return <div>TopTracks</div>;
 };
