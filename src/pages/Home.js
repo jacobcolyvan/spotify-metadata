@@ -6,11 +6,12 @@ import UserContext from '../context/UserContext';
 const Home = ({ location }) => {
   const history = useHistory();
   const { token, setToken } = useContext(UserContext);
+  
 
   useEffect(() => {
     if (location.hash.split('=')[1]) {
       setToken(location.hash.split('=')[1]);
-      history.push('/top-tracks');
+      history.push('/top-artists');
     }
   }, [setToken, token, history, location.hash]);
 

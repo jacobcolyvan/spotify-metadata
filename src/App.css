@@ -2,3 +2,14 @@
   font-family: 'Roboto';
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.item {
+  border: 1px solid #445488;
+  padding: 6px 4px;
+  border-radius: 4px;
+}

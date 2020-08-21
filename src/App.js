@@ -28,7 +28,7 @@ const App = () => {
       <Container maxWidth='sm'>
         <h1>Spotify Metadata</h1>
         <Router>
-          {/* <NavBar/> */}
+          {token && <NavBar/>}
           <UserContext.Provider value={{ token, setToken}}>
             <Switch>
               <Route
