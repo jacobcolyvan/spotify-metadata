@@ -52,7 +52,7 @@ const TopArtists = () => {
 
   return (
     <div>
-      {/* Top Artists  */}
+      <br/>
       <p>Just a quick note that longer timeframes are going to be closer to what you actually listen to.</p>
       {artists && (
         <ul>{artists.map((artist, index) => (

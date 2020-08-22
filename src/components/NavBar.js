@@ -11,8 +11,8 @@ const NavBar = () => {
     <div>
       <AppBar position='static'>
         <Button variant='contained' color='primary' onClick={() => history.push('/top-artists')}>Top Artists</Button>
-        <Button variant='contained' color='primary' onClick={() => history.push('/')}>Top Tracks</Button>
-        <Button variant='contained' color='primary' onClick={() => history.push('/')}>Playlists</Button>
+        <Button variant='contained' color='primary' onClick={() => history.push('/top-tracks')}>Top Tracks</Button>
+        <Button variant='contained' color='primary' onClick={() => history.push('/playlists')}>Playlists</Button>
       </AppBar>
     </div>
   );

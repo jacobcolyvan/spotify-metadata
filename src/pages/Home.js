@@ -15,7 +15,6 @@ const Home = ({ location }) => {
     }
   }, [setToken, token, history, location.hash]);
 
-console.log(token);
   return (
     <div>
       <p>You'll have to authorise Spotify before you can start making playlists:</p>
