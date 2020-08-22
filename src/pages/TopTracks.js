@@ -10,20 +10,20 @@ const TopTracks = () => {
   const { token } = useContext(UserContext);
   const [tracks, setTracks] = useState(undefined);
   const history = useHistory();
-  const [timeRange, setTimeRange] = useState('medium_term')
+  const [timeRange, setTimeRange] = useState('short_term')
 
   useEffect(() => {
     const getTracks = async () => {
       try {
         const response = await axios({
           method: 'get',
-          url: 'https://api.spotify.com/v1/me/top/tracks',
+          url: `https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}`,
           headers: {
             Authorization: 'Bearer ' + token,
             'Content-Type': 'application/json'
           },
           data: { 
-            time_range: `${timeRange}`,
+            time_range: timeRange,
             limit: '50',
             offset: '0'
           }

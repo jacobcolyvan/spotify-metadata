@@ -32,9 +32,7 @@ const Playlists = () => {
         
       } catch (err) {
         console.log(err.message);
-      }
-
-      
+      }  
     };
 
     if (!token) {

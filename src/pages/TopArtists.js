@@ -62,7 +62,7 @@ const TopArtists = () => {
         ))}
         </ul>
       )}
-      {size.width}
+      {/* {size.width} */}
     </div>
 
   )
