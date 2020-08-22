@@ -17,12 +17,7 @@ import {
 
 const App = () => {
   const [token, setToken] = useState(undefined);
-  // const [queryParams, setQueryParams] = useState({
-  //   time_range: 'medium_term',
-  //   limit: '50',
-  //   offset: '0'
-  // });
-
+  
   return (
     <div>
       <Container maxWidth='sm'>

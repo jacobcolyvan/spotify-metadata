@@ -10,8 +10,8 @@ const TopArtists = () => {
   const { token } = useContext(UserContext);
   const history = useHistory();
   const [queryParams, setQueryParams] = useState({
-    time_range: 'medium_term',
-    limit: '50',
+    time_range: 'short_term',
+    limit: '10',
     offset: '0'
   });
 
