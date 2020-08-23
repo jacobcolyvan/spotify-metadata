@@ -13,16 +13,18 @@ const Playlist = ({playlist}) => {
       try {
         const response = await axios({
           method: 'get',
-          url: `https://api.spotify.com/v1/me/top/artists`,
+          url: playlist.href,
           headers: {
             Authorization: 'Bearer ' + token,
             'Content-Type': 'application/json'
           }
           
         });
-        const tracklist = response.data.items.map((artist) => artist.name);
-        console.log(tracklist);
-        setPlaylistTracks(tracklist)
+        console.log(response);
+        // const tracklist = response.data.tracks.items.map((artist) => artist.name);
+
+        // console.log(tracklist);
+        setPlaylistTracks(response.data.tracks.items)
       } catch (err) {
         console.log(err.message);
       }
@@ -42,7 +44,7 @@ const Playlist = ({playlist}) => {
         <ul>
         {playlistTracks.map((track, index) => (
           <li className='track item' key={`track${index}`}>
-            {track[0]} – <i>{track[1]}</i>
+            {track.track.name} – <i>{track.track.artists[0].name}</i>
           </li>
         ))}
       </ul>

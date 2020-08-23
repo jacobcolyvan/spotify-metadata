@@ -13,3 +13,8 @@ ul {
   padding: 6px 4px;
   border-radius: 4px;
 }
+
+.playlist:hover {
+  color: #ed1212;
+  cursor: pointer;
+}
