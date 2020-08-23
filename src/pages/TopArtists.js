@@ -40,10 +40,10 @@ const TopArtists = () => {
       }
     };
 
-    if (!token) {
-      history.push('/');
-    } else {
+    if (token) {
       getArtists()
+    } else {
+      history.push('/');
     }
   }, [history, token, timeRange]);
 

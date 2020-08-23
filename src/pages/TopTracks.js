@@ -4,8 +4,7 @@ import UserContext from '../context/UserContext';
 import axios from 'axios';
 import SelectTimeRange from '../components/SelectTimeRange'
 
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+
 
 const TopTracks = () => {
   const { token } = useContext(UserContext);
@@ -18,7 +17,7 @@ const TopTracks = () => {
       try {
         const response = await axios({
           method: 'get',
-          url: `https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&offset=0&limit=10`,
+          url: `https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&offset=0&limit=50`,
           headers: {
             Authorization: 'Bearer ' + token,
             'Content-Type': 'application/json'
