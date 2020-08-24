@@ -6,7 +6,7 @@ const Tracks = ({ tracks }) => {
       <ul>
         {tracks.map((track, index) => (
           <li className='track item' key={`track${index}`}>
-            {track.name} – <i>{track.artists[0].name}</i>
+            {track.track.name} – <i>{track.track.artists[0].name}</i>
           </li>
         ))}
       </ul>

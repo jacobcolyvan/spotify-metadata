@@ -2,11 +2,14 @@ import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
+import Tracks from '../components/ShowPlaylistTracks';
+import AudioFeatures from '../components/Audiofeatures';
 
-const Playlist = ({playlist}) => {
+const Playlist = ({ playlist }) => {
   const { token } = useContext(UserContext);
   const history = useHistory();
-  const [playlistTracks, setPlaylistTracks] = useState(undefined)
+  const [playlistTracks, setPlaylistTracks] = useState(undefined);
+  const [trackIds, setTrackIds] = useState(undefined);
 
   useEffect(() => {
     const getTracks = async () => {
@@ -18,39 +21,37 @@ const Playlist = ({playlist}) => {
             Authorization: 'Bearer ' + token,
             'Content-Type': 'application/json'
           }
-          
         });
-        console.log(response);
-        // const tracklist = response.data.tracks.items.map((artist) => artist.name);
 
-        // console.log(tracklist);
-        setPlaylistTracks(response.data.tracks.items)
+        const tracklist = response.data.tracks.items;
+        setTrackIds(tracklist.map((track) => track.track.id));
+        setPlaylistTracks(tracklist);
       } catch (err) {
         console.log(err.message);
       }
     };
 
-    if (playlist && token ) {
-      getTracks()
+    if (playlist && token) {
+      getTracks();
     } else {
-      history.push('/')
+      history.push('/');
     }
   }, [history, token, playlist]);
 
   return (
     <div>
-      <br/>
+      <br />
+      <h2>
+        <i>{playlist.name}</i>
+      </h2>
       {playlistTracks && (
-        <ul>
-        {playlistTracks.map((track, index) => (
-          <li className='track item' key={`track${index}`}>
-            {track.track.name} – <i>{track.track.artists[0].name}</i>
-          </li>
-        ))}
-      </ul>
+        <>
+          <AudioFeatures trackIds={trackIds} />
+          <Tracks tracks={playlistTracks} />
+        </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Playlist
+export default Playlist;
