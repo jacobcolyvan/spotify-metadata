@@ -22,7 +22,7 @@ const Playlists = () => {
           }
         });
 
-        console.log(response);
+        // console.log(response);
         setPlaylists(response.data.items);
         // const trackList = response.data.items.map((playlist) => [
         //   playlist.name,

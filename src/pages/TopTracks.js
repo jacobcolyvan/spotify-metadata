@@ -28,7 +28,7 @@ const TopTracks = () => {
         });
 
         const tracklist = response.data.items;
-        console.log(tracklist);
+        // console.log(tracklist);
         setTrackIds(tracklist.map((track) => track.id));
         setTracks(tracklist);
       } catch (err) {

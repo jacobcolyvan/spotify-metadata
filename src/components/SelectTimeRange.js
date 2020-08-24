@@ -5,7 +5,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 const SelectTimeRange = ({timeRange, setTimeRange}) => {
   const handleTimeRangeChange = (event) => {
     setTimeRange(event.target.value)
-    console.log(event.target.value);
   }
 
   return (

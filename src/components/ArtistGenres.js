@@ -15,7 +15,7 @@ const ArtistGenres = ({ artistHREFs, setArtistData }) => {
         })
         .reverse();
 
-      console.log(sortedHash);
+      // console.log(sortedHash);
       setAverageGenres(sortedHash.slice(0, 10));
     };
 
@@ -51,7 +51,7 @@ const ArtistGenres = ({ artistHREFs, setArtistData }) => {
         });
 
         Promise.all(responseArray).then((data) => {
-          console.log(data);
+          // console.log(data);
           setArtistData(data);
           sumGenreData(data);
         });

@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Tabs, Tab, AppBar } from '@material-ui/core';
-import { Button, AppBar } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
 import { useHistory } from 'react-router-dom';
 import Accordion from '@material-ui/core/Accordion';
@@ -79,11 +79,3 @@ export default NavBar;
 //     {/* <Tab label='Playlists' onClick={history.push('/playlists')} /> */}
 //   </Tabs>
 // </AppBar>;
-
-{
-  /* <AppBar position='static'>
-  <Button variant='contained' color='primary' onClick={() => history.push('/top-artists')}>Top Artists</Button>
-  <Button variant='contained' color='primary' onClick={() => history.push('/top-tracks')}>Top Tracks</Button>
-  <Button variant='contained' color='primary' onClick={() => history.push('/playlists')}>Playlists</Button>
-</AppBar>  */
-}

@@ -14,7 +14,7 @@ const Home = ({ location, setCurrentPage }) => {
       setCurrentPage(0)
       history.push('/top-artists');
     }
-  }, [setToken, token, history, location.hash]);
+  }, [setToken, token, history, location.hash, setCurrentPage]);
 
   return (
     <div>

@@ -35,7 +35,7 @@ const TopArtists = () => {
           }
         });
         // const artistList = response.data.items.map((artist) => artist.name);
-        console.log(response.data.items);
+        // console.log(response.data.items);
 
         // setArtistHREFs(tracklist.map((track) => track.track.artists[0].href))
         setArtists(response.data.items);

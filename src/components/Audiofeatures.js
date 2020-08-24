@@ -28,7 +28,7 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
 
     const sumAudioFeatures = async () => {   
       let features = await getAudioFeatures()
-      console.log(features); 
+      // console.log(features); 
 
       let featureAverages = features[0];
       for (let i = 1; i < features.length; i++) {
