@@ -3,8 +3,7 @@ import UserContext from '../context/UserContext'
 import axios from 'axios'
 
 
-const Audiofeatures = ({trackIds}) => {
-  const [audioFeatures, setAudioFeatures] = useState(undefined)
+const Audiofeatures = ({trackIds, setAudioFeatures}) => {
   const [averageAudioFeatures, setAverageAudioFeatures] = useState(undefined)
   const { token } = useContext(UserContext);
 

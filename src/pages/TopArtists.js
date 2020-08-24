@@ -3,21 +3,23 @@ import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
 // import useWindowSize from '../utils/useWindowSize'
-import SelectTimeRange from '../components/SelectTimeRange'
-import HipsterRating from '../components/HipsterRating'
+import SelectTimeRange from '../components/SelectTimeRange';
+import HipsterRating from '../components/HipsterRating';
 // import ArtistGenres from '../components/ArtistGenres'
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const TopArtists = () => {
   const [artists, setArtists] = useState(undefined);
   const { token } = useContext(UserContext);
   const history = useHistory();
-  const [timeRange, setTimeRange] = useState('short_term')
+  const [timeRange, setTimeRange] = useState('short_term');
   // const [artistHREFs, setArtistHREFs] = useState(undefined)
-  
 
   // const size = useWindowSize();
-
-  
 
   useEffect(() => {
     const getArtists = async () => {
@@ -29,7 +31,6 @@ const TopArtists = () => {
             Authorization: 'Bearer ' + token,
             'Content-Type': 'application/json'
           }
-          
         });
         // const artistList = response.data.items.map((artist) => artist.name);
         console.log(response.data.items);
@@ -42,7 +43,7 @@ const TopArtists = () => {
     };
 
     if (token) {
-      getArtists()
+      getArtists();
     } else {
       history.push('/');
     }
@@ -54,29 +55,45 @@ const TopArtists = () => {
 
   return (
     <div>
-      <br/>
-      <p>Just a quick note that longer timeframes are going to be closer to what you actually listen to.</p>
+      <br />
       <SelectTimeRange timeRange={timeRange} setTimeRange={setTimeRange} />
+      <p>
+        Just a quick note that longer timeframes are going to be closer to what
+        you actually listen to.
+      </p>
 
       {artists && (
         <>
           {/* <ArtistGenres artistHREFs={artistHREFs} /> */}
           <HipsterRating artists={artists} time_range={timeRange} />
-          <ul>{artists.map((artist, index) => (
-            <li className='artist item' key={`artist${index}`}>
-              {artist.name}
-            </li>
-          ))}
-          </ul>
+
+          <div>
+            {artists.map((artist, index) => (
+              <Accordion
+                key={`artist${index}`}
+                variant='outlined'
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls='panel1a-content'
+                  id='panel1a-header'
+                  style={{ flex: 1, margin: '0 20px 0 0'}}
+                >
+                  <Typography>{artist.name}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography variant='body2'>
+                    <b>Genres:</b> {artist.genres.join(', ')}.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            ))}
+          </div>
         </>
       )}
       {/* {size.width} */}
     </div>
-
-  )
-}
+  );
+};
 
 export default TopArtists;
-
-
-

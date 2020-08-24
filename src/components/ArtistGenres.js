@@ -2,9 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
 
-const ArtistGenres = ({ artistHREFs }) => {
+const ArtistGenres = ({ artistHREFs, setArtistData }) => {
   const { token } = useContext(UserContext);
-  const [artistData, setArtistData] = useState(undefined);
   const [averageGenres, setAverageGenres] = useState(undefined);
 
   useEffect(() => {

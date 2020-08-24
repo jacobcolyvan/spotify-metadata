@@ -13,6 +13,8 @@ const Playlist = ({ playlist }) => {
   const [playlistTracks, setPlaylistTracks] = useState(undefined);
   const [trackIds, setTrackIds] = useState(undefined);
   const [artistHREFs, setArtistHREFs] = useState(undefined)
+  const [audioFeatures, setAudioFeatures] = useState(undefined)
+  const [artistData, setArtistData] = useState(undefined);
 
   useEffect(() => {
     const getTracks = async () => {
@@ -51,8 +53,8 @@ const Playlist = ({ playlist }) => {
       </h2>
       {playlistTracks && (
         <>
-          <AudioFeatures trackIds={trackIds} />
-          <ArtistGenres artistHREFs={artistHREFs} />
+          <AudioFeatures trackIds={trackIds} setAudioFeatures={setAudioFeatures} />
+          <ArtistGenres artistHREFs={artistHREFs} setArtistData={setArtistData} />
           <Tracks tracks={playlistTracks} />
         </>
       )}
