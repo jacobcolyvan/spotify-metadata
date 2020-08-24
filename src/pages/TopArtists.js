@@ -2,13 +2,9 @@ import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
-import useWindowSize from '../utils/useWindowSize'
+// import useWindowSize from '../utils/useWindowSize'
 import SelectTimeRange from '../components/SelectTimeRange'
-// import spotifyRequest from '../utils/spotifyRequests'
-
-
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import HipsterRating from '../components/HipsterRating'
 
 const TopArtists = () => {
   const [artists, setArtists] = useState(undefined);
@@ -16,7 +12,7 @@ const TopArtists = () => {
   const history = useHistory();
   const [timeRange, setTimeRange] = useState('short_term')
 
-  const size = useWindowSize();
+  // const size = useWindowSize();
 
   
 
@@ -32,9 +28,9 @@ const TopArtists = () => {
           }
           
         });
-        const artistList = response.data.items.map((artist) => artist.name);
-        console.log(artistList);
-        setArtists(artistList);
+        // const artistList = response.data.items.map((artist) => artist.name);
+        console.log(response.data.items);
+        setArtists(response.data.items);
       } catch (err) {
         console.log(err.message);
       }
@@ -58,12 +54,15 @@ const TopArtists = () => {
       <SelectTimeRange timeRange={timeRange} setTimeRange={setTimeRange} />
 
       {artists && (
-        <ul>{artists.map((artist, index) => (
-          <li className='artist item' key={`artist${index}`}>
-            {artist}
-          </li>
-        ))}
-        </ul>
+        <>
+          <HipsterRating artists={artists} time_range={timeRange} />
+          <ul>{artists.map((artist, index) => (
+            <li className='artist item' key={`artist${index}`}>
+              {artist.name}
+            </li>
+          ))}
+          </ul>
+        </>
       )}
       {/* {size.width} */}
     </div>

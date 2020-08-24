@@ -21,8 +21,7 @@ const TopTracks = () => {
           headers: {
             Authorization: 'Bearer ' + token,
             'Content-Type': 'application/json'
-          }
-          
+          }          
         });
         console.log(response.data.items[0]);
         console.log(timeRange);

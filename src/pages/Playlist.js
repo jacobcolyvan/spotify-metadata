@@ -35,7 +35,7 @@ const Playlist = ({playlist}) => {
     } else {
       history.push('/')
     }
-  }, [history, token]);
+  }, [history, token, playlist]);
 
   return (
     <div>

@@ -9,7 +9,7 @@ const Home = ({ location }) => {
 
   useEffect(() => {
     if (location.hash.split('=')[1]) {
-      console.log(location.hash.split('=')[1])
+      // console.log(location.hash.split('=')[1])
       setToken(location.hash.split('=')[1]);
       history.push('/top-artists');
     }
