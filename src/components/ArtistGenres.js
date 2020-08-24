@@ -61,7 +61,7 @@ const ArtistGenres = ({ artistHREFs, setArtistData }) => {
     };
 
     getArtistData();
-  }, [token, artistHREFs]);
+  }, [token, artistHREFs, setArtistData]);
 
   return (
     <div>

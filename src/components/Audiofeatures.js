@@ -18,9 +18,8 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
             'Content-Type': 'application/json'
           }
         });
-  
-        // console.log(response.data.audio_features);
-        setAudioFeatures(response.data.audio_features);
+        
+        
         return response.data.audio_features
       } catch (err) {
         console.log(err.message);
@@ -28,17 +27,20 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
     }
 
     const sumAudioFeatures = async () => {   
-      const features = await getAudioFeatures()
-      // console.log(features); 
+      let features = await getAudioFeatures()
+      console.log(features); 
 
       let featureAverages = features[0];
       for (let i = 1; i < features.length; i++) {
-        Object.keys(featureAverages).forEach((a) => {
+        Object.keys(featureAverages).forEach((feature) => {
           if (features[i]) {
-            if (!isNaN(featureAverages[a])) {
-              featureAverages[a] = featureAverages[a] + features[i][a];
+            if (!isNaN(featureAverages[feature])) {
+              featureAverages[feature] = featureAverages[feature] + features[i][feature];
             } else {
-              delete featureAverages[a];
+              delete featureAverages[feature];
+              features.forEach((track_features) => {
+                delete track_features[feature] 
+              })
             }
           }
         });
@@ -51,11 +53,12 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
       });
       
       // console.log(featureAverages);
+      setAudioFeatures(features);
       setAverageAudioFeatures(featureAverages)
     }
 
     sumAudioFeatures()
-  }, [token, trackIds])
+  }, [token, trackIds, setAudioFeatures])
 
 
   return (

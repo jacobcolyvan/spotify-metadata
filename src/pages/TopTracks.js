@@ -12,6 +12,8 @@ const TopTracks = () => {
   const [trackIds, setTrackIds] = useState(undefined)
   const history = useHistory();
   const [timeRange, setTimeRange] = useState('short_term');
+  const [audioFeatures, setAudioFeatures] = useState(undefined);
+  // const [artistData, setArtistData] = useState(undefined);
 
   useEffect(() => {
     const getTracks = async () => {
@@ -52,8 +54,14 @@ const TopTracks = () => {
       <SelectTimeRange timeRange={timeRange} setTimeRange={setTimeRange} />
       {tracks && (
         <>
-          <AudioFeatures trackIds={trackIds} />
-          <Tracks tracks={tracks} />
+          <AudioFeatures 
+            trackIds={trackIds} 
+            setAudioFeatures={setAudioFeatures} 
+          />
+          <Tracks 
+            tracks={tracks} 
+            audioFeatures={audioFeatures} 
+          />
         </>
       )}
     </div>
