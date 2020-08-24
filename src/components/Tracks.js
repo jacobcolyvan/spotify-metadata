@@ -21,7 +21,7 @@ const Tracks = ({ tracks, artistData, audioFeatures }) => {
               expandIcon={<ExpandMoreIcon />}
               aria-controls='panel1a-content'
               id='track-header'
-              style={{ flex: 1, margin: '0 20px 0 0' }}
+              // style={{ flex: 1, margin: '0 20px 0 0' }}
             >
               <Typography>{track.name} – <i>{track.artists[0].name}</i></Typography>
             </AccordionSummary>
