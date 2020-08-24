@@ -3,7 +3,7 @@ import SpotifyAuth from '../components/SpotifyAuth';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 
-const Home = ({ location }) => {
+const Home = ({ location, setCurrentPage }) => {
   const history = useHistory();
   const { token, setToken } = useContext(UserContext);
 
@@ -11,6 +11,7 @@ const Home = ({ location }) => {
     if (location.hash.split('=')[1]) {
       // console.log(location.hash.split('=')[1])
       setToken(location.hash.split('=')[1]);
+      setCurrentPage(0)
       history.push('/top-artists');
     }
   }, [setToken, token, history, location.hash]);

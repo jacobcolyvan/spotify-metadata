@@ -53,6 +53,7 @@ const Playlist = ({ playlist }) => {
       <h2>
         <i>{playlist.name}</i>
       </h2>
+      {/* <p>{playlist.description}</p> */}
       {playlistTracks && (
         <>
           <AudioFeatures

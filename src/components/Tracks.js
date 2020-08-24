@@ -29,7 +29,7 @@ const Tracks = ({ tracks, artistData, audioFeatures }) => {
             {artistData && (
               <AccordionDetails>
                 <Typography variant='body2'>
-                  <li><b>Genres:</b> {artistData[index].data.genres.join(', ')}.</li>   
+                  <li><b>Genres:</b> {artistData[index].data.genres.join(', ')}</li>   
                 </Typography>
               </AccordionDetails>
             )}

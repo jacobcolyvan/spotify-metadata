@@ -13,6 +13,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+
 const TopArtists = () => {
   const [artists, setArtists] = useState(undefined);
   const { token } = useContext(UserContext);
@@ -84,7 +85,12 @@ const TopArtists = () => {
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography variant='body2'>
-                    <b>Genres:</b> {artist.genres.join(', ')}.
+                    <b>Genres:</b> {artist.genres.join(', ')}
+                  </Typography>
+                </AccordionDetails>
+                <AccordionDetails>
+                  <Typography variant='body2'>
+                    <b>Popularity Rating:</b> {artist.popularity}
                   </Typography>
                 </AccordionDetails>
               </Accordion>

@@ -18,3 +18,7 @@ ul {
   color: #ed1212;
   cursor: pointer;
 }
+
+.header-buttons {
+  width: 100%;
+}
