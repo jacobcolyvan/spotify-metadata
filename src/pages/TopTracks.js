@@ -9,7 +9,7 @@ import AudioFeatures from '../components/Audiofeatures';
 const TopTracks = () => {
   const { token } = useContext(UserContext);
   const [tracks, setTracks] = useState(undefined);
-  const [trackIds, setTrackIds] = useState(undefined);
+  const [trackIds, setTrackIds] = useState(undefined)
   const history = useHistory();
   const [timeRange, setTimeRange] = useState('short_term');
 
@@ -25,11 +25,10 @@ const TopTracks = () => {
           }
         });
 
-        const trackList = response.data.items;
-        setTrackIds(trackList.map((track) => track.id));
-        // console.log(response);
-
-        setTracks(trackList);
+        const tracklist = response.data.items;
+        console.log(tracklist);
+        setTrackIds(tracklist.map((track) => track.id));
+        setTracks(tracklist);
       } catch (err) {
         console.log(err.message);
       }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
-import axios from 'axios'
 import UserContext from '../context/UserContext'
+import axios from 'axios'
+
 
 const Audiofeatures = ({trackIds}) => {
   const [audioFeatures, setAudioFeatures] = useState(undefined)
@@ -19,7 +20,7 @@ const Audiofeatures = ({trackIds}) => {
           }
         });
   
-        console.log(response.data.audio_features);
+        // console.log(response.data.audio_features);
         setAudioFeatures(response.data.audio_features);
         return response.data.audio_features
       } catch (err) {
@@ -29,7 +30,7 @@ const Audiofeatures = ({trackIds}) => {
 
     const sumAudioFeatures = async () => {   
       const features = await getAudioFeatures()
-      console.log(features); 
+      // console.log(features); 
 
       let featureAverages = features[0];
       for (let i = 1; i < features.length; i++) {
@@ -50,7 +51,7 @@ const Audiofeatures = ({trackIds}) => {
         );
       });
       
-      console.log(featureAverages);
+      // console.log(featureAverages);
       setAverageAudioFeatures(featureAverages)
     }
 
@@ -66,7 +67,7 @@ const Audiofeatures = ({trackIds}) => {
       {averageAudioFeatures && (
         <ul>
           {Object.keys(averageAudioFeatures).map((feature, index) => (
-            <li className='feature' key={`feature${index}`}>
+            <li className='feature average' key={`feature${index}`}>
               <b><i>{feature}:</i></b> {averageAudioFeatures[feature]}
             </li>
           ))}

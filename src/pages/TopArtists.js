@@ -5,12 +5,15 @@ import axios from 'axios';
 // import useWindowSize from '../utils/useWindowSize'
 import SelectTimeRange from '../components/SelectTimeRange'
 import HipsterRating from '../components/HipsterRating'
+// import ArtistGenres from '../components/ArtistGenres'
 
 const TopArtists = () => {
   const [artists, setArtists] = useState(undefined);
   const { token } = useContext(UserContext);
   const history = useHistory();
   const [timeRange, setTimeRange] = useState('short_term')
+  // const [artistHREFs, setArtistHREFs] = useState(undefined)
+  
 
   // const size = useWindowSize();
 
@@ -30,6 +33,8 @@ const TopArtists = () => {
         });
         // const artistList = response.data.items.map((artist) => artist.name);
         console.log(response.data.items);
+
+        // setArtistHREFs(tracklist.map((track) => track.track.artists[0].href))
         setArtists(response.data.items);
       } catch (err) {
         console.log(err.message);
@@ -55,6 +60,7 @@ const TopArtists = () => {
 
       {artists && (
         <>
+          {/* <ArtistGenres artistHREFs={artistHREFs} /> */}
           <HipsterRating artists={artists} time_range={timeRange} />
           <ul>{artists.map((artist, index) => (
             <li className='artist item' key={`artist${index}`}>

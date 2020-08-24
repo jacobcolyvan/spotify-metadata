@@ -16,8 +16,6 @@ const HipsterRating = ({artists, time_range}) => {
     hipsterRating()
   }, [artists])
 
-
-
   return (
     <div>
       <p>The <i>HipsterRating</i> of your top artists ({time_range}) is: {popularityAverage}</p>

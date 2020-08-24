@@ -2,14 +2,17 @@ import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
+
 import Tracks from '../components/ShowPlaylistTracks';
 import AudioFeatures from '../components/Audiofeatures';
+import ArtistGenres from '../components/ArtistGenres'
 
 const Playlist = ({ playlist }) => {
   const { token } = useContext(UserContext);
   const history = useHistory();
   const [playlistTracks, setPlaylistTracks] = useState(undefined);
   const [trackIds, setTrackIds] = useState(undefined);
+  const [artistHREFs, setArtistHREFs] = useState(undefined)
 
   useEffect(() => {
     const getTracks = async () => {
@@ -24,7 +27,9 @@ const Playlist = ({ playlist }) => {
         });
 
         const tracklist = response.data.tracks.items;
+        console.log(tracklist);
         setTrackIds(tracklist.map((track) => track.track.id));
+        setArtistHREFs(tracklist.map((track) => track.track.artists[0].href))
         setPlaylistTracks(tracklist);
       } catch (err) {
         console.log(err.message);
@@ -47,6 +52,7 @@ const Playlist = ({ playlist }) => {
       {playlistTracks && (
         <>
           <AudioFeatures trackIds={trackIds} />
+          <ArtistGenres artistHREFs={artistHREFs} />
           <Tracks tracks={playlistTracks} />
         </>
       )}
