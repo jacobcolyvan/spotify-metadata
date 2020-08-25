@@ -8,11 +8,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 const Tracks = ({ tracks, artistData, audioFeatures }) => {
   return (
     <div>
-      <ul>
+      <div>
         {tracks.map((track, index) => (
-        //   <li className='track item' key={`track${index}`}>
-        //   {track.name} – <i>{track.artists[0].name}</i>
-        // </li>
           <Accordion 
           key={`artist${index}`} 
           variant='outlined'
@@ -47,7 +44,7 @@ const Tracks = ({ tracks, artistData, audioFeatures }) => {
             )}
           </Accordion>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
