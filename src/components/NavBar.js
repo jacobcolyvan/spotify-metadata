@@ -84,6 +84,7 @@ const NavBar = ({ currentPage, setCurrentPage }) => {
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
         buttons={pageButtons}
+        isMobile={isMobile}
       />
     </div>
   );

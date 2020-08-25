@@ -11,37 +11,48 @@ const useStyles = makeStyles((theme) => ({
     width: 250,
   },
   button: {
-    marginTop: theme.spacing(2),
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2)
   },
 }));
 
-const NavDrawer = ({drawer, toggleDrawer, currentPage, setCurrentPage, buttons}) => {
+const NavDrawer = ({
+  drawer,
+  toggleDrawer,
+  currentPage,
+  setCurrentPage,
+  buttons,
+  isMobile
+}) => {
   const classes = useStyles();
   const history = useHistory();
-  
 
   return (
     <div>
-      <Drawer open={drawer} onClose={toggleDrawer(false)}>
-        <List className={classes.list}>
+      <Drawer
+        open={drawer}
+        onClose={toggleDrawer(false)}
+        anchor={isMobile ? 'bottom' : 'left'}
+      >
+        <List className={isMobile ? 'list-bottom' : classes.list}>
           {buttons.map((button, index) => (
             <Button
-            color={currentPage === index ? 'secondary' : 'primary'}
-            fullWidth
-            onClick={() => {
-              setCurrentPage(index);
-              history.push(button.link);
-            }}
-            className={classes.button}
-            key={`button${index}`}
-          >
-            {button.name}
-          </Button>
+              color={currentPage === index ? 'secondary' : 'primary'}
+              fullWidth
+              onClick={() => {
+                setCurrentPage(index);
+                history.push(button.link);
+              }}
+              className={classes.button}
+              key={`button${index}`}
+            >
+              {button.name}
+            </Button>
           ))}
         </List>
       </Drawer>
     </div>
-  )
-}
+  );
+};
 
-export default NavDrawer
+export default NavDrawer;
