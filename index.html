@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Spotify Metadata</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://sp-bootstrap.global.ssl.fastly.net/8.0.0/sp-bootstrap.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+      body {
+        box-sizing:border-box;
+      }
+      #functionButtons {
+        display: flex-inline;
+      }
+      .button {
+        width: 32.82%;
+        background-color: #D3D3D3;
+      }
+      .timeFrameButton {
+        display: none;
+      }
+
+      .activeTimeFrame, .activeFunctionButton {
+        background-color: #B1EEEB;
+      }
+
+      #audioFeature {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      #audioFeaturesList {
+        padding: 0;
+      }
+    </style>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+    <script src="authentication.js" defer></script>
+  </head>
+
+  <body class="container">
+    <h1 class="text-secondary" id="heading">Spotify Metadata</h1>
+
+    <div id="functionButtons">
+      <button class="button btn functionButton bg-secondary" id="topArtists">See Top Artists</button>
+      <button class="button btn functionButton bg-secondary" id="topTracks">See Top Tracks</button>
+      <button class="button btn  functionButton bg-secondary" id="viewPlaylists">See Playlists</button>
+    </div>
+    <br>
+    <div id="timeFrameButtons">
+      <button class="button btn-sm timeFrameButton" id="shortTermButton"><em>Short-Term Stats (4 wks)</em></button>
+      <button class="button btn-sm timeFrameButton activeTimeFrame" id="mediumTermButton  "><em>Medium-Term Stats (6 mnths)</em></button>
+      <button class="button btn-sm timeFrameButton" id="longTermButton"><em>Long-Term Stats (All Time)</em></button>
+    </div>
+
+    <hr>
+    <div id="main">
+      <p id="homeDescription">Sort through your own spotify listening habits by clicking on one of the above buttons. <br><br>Good times ahead. <br>Enjoy. <br><br>Shoutout to <i>Spotify</i> for making their data so accesible.</p>
+      
+
+      <div id=audioFeatureInfo>
+        <div id="featuresDescription"></div>
+        <ul id="audioFeaturesList"></ul>
+      </div>
+
+      <p id="description"></p>
+      <p id="extraInfo"></p>
+      <ol id="dataList" class="list-group"></ol>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
