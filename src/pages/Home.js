@@ -18,6 +18,7 @@ const Home = ({ location, setCurrentPage }) => {
 
   return (
     <div>
+      <br/>
       <p>You'll have to authorise Spotify before you can start making playlists:</p>
       <SpotifyAuth/>
     </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import UserContext from '../context/UserContext'
 import axios from 'axios'
+import Divider from '@material-ui/core/Divider';
 
 
 const Audiofeatures = ({trackIds, setAudioFeatures}) => {
@@ -63,7 +64,7 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
 
   return (
     <div className="audio-features-container">
-      <br/><hr />
+      <Divider />
       <p>The Average audio features of the tracks are listed below. For information about a specific feature visit <a href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/" target="_blank" rel="noopener noreferrer">Spotify</a>.</p>
 
       {averageAudioFeatures && (

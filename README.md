@@ -5,7 +5,7 @@ Spotify has some very interesting data that they've got going on in their backen
 
 Conversion of a previous project in Vanilla JS to React, styled using Material-UI. The original project can be found in the project branch called ```vanilla-javascript```. <br>
 
-It is built with React, and styled using Material-UI. Requests are done using axios, and Spotify-authorisation is done completely client-side using the Client Credentials Authorisation Flow.
+It is built with React, and styled using Material-UI. Requests are done using axios, and Spotify-authorisation is done completely client-side using the <a href='https://developer.spotify.com/documentation/general/guides/authorization-guide/'>Client Credentials Authorisation Flow</a>.
 
 <hr>
 

@@ -13,10 +13,9 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-
 const TopArtists = () => {
   const [artists, setArtists] = useState(undefined);
-  const { token } = useContext(UserContext);
+  const { token, isMobile } = useContext(UserContext);
   const history = useHistory();
   const [timeRange, setTimeRange] = useState('short_term');
   // const [artistHREFs, setArtistHREFs] = useState(undefined)
@@ -58,11 +57,12 @@ const TopArtists = () => {
   return (
     <div>
       <br />
-      <SelectTimeRange timeRange={timeRange} setTimeRange={setTimeRange} />
       <p>
         Just a quick note that longer timeframes are going to be closer to what
         you actually listen to.
       </p>
+      <SelectTimeRange timeRange={timeRange} setTimeRange={setTimeRange} />
+      
 
       {artists && (
         <>
@@ -71,23 +71,22 @@ const TopArtists = () => {
 
           <div>
             {artists.map((artist, index) => (
-              <Accordion
-                key={`artist${index}`}
-                variant='outlined'
-              >
+              <Accordion key={`artist${index}`} variant='outlined'>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls='panel1a-content'
                   id='panel1a-header'
-                  style={{ flex: 1, margin: '0 20px 0 0'}}
+                  style={{ flex: 1, margin: '0 20px 0 0' }}
                 >
                   <Typography>{artist.name}</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
-                  <Typography variant='body2'>
-                    <b>Genres:</b> {artist.genres.join(', ')}
-                  </Typography>
-                </AccordionDetails>
+                {artist.genres.length > 0 && (
+                  <AccordionDetails>
+                    <Typography variant='body2'>
+                      <b>Genres:</b> {artist.genres.join(', ')}.
+                    </Typography>
+                  </AccordionDetails>
+                )}
                 <AccordionDetails>
                   <Typography variant='body2'>
                     <b>Popularity Rating:</b> {artist.popularity}

@@ -3,10 +3,11 @@ import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
 import Playlist from './Playlist';
+import { Typography } from '@material-ui/core';
 
 const Playlists = () => {
   const history = useHistory();
-  const { token } = useContext(UserContext);
+  const { token, isMobile } = useContext(UserContext);
   const [playlists, setPlaylists] = useState(undefined);
   const [playlist, setPlaylist] = useState(undefined);
 
@@ -47,7 +48,11 @@ const Playlists = () => {
   };
 
   if (playlist) {
-    return <div><Playlist playlist={playlist}/></div>;
+    return (
+      <div>
+        <Playlist playlist={playlist} />
+      </div>
+    );
   } else {
     return (
       <div>

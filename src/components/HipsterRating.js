@@ -18,7 +18,7 @@ const HipsterRating = ({artists, time_range}) => {
 
   return (
     <div>
-      <p>The <i>HipsterRating</i> of your top artists ({time_range}) is: {popularityAverage}</p>
+      <p>The <i>HipsterRating</i> of your top artists ({time_range}) is: <b>{popularityAverage}</b>.</p>
     </div>
   )
 }
