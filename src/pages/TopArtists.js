@@ -15,7 +15,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const TopArtists = () => {
   const [artists, setArtists] = useState(undefined);
-  const { token, isMobile } = useContext(UserContext);
+  const { token } = useContext(UserContext);
   const history = useHistory();
   const [timeRange, setTimeRange] = useState('short_term');
   // const [artistHREFs, setArtistHREFs] = useState(undefined)
@@ -27,7 +27,7 @@ const TopArtists = () => {
       try {
         const response = await axios({
           method: 'get',
-          url: `https://api.spotify.com/v1/me/top/artists?time_range=${timeRange}&offset=0&limit=20`,
+          url: `https://api.spotify.com/v1/me/top/artists?time_range=${timeRange}&offset=0&limit=50`,
           headers: {
             Authorization: 'Bearer ' + token,
             'Content-Type': 'application/json'
