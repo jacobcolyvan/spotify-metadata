@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
 import SelectTimeRange from '../components/SelectTimeRange';
+// import SelectLimit from '../components/SelectLimit'
 import Tracks from '../components/Tracks';
 import AudioFeatures from '../components/Audiofeatures';
 
@@ -12,6 +13,7 @@ const TopTracks = () => {
   const [trackIds, setTrackIds] = useState(undefined)
   const history = useHistory();
   const [timeRange, setTimeRange] = useState('short_term');
+  // const [limit, setLimit] = useState(20);
   const [audioFeatures, setAudioFeatures] = useState(undefined);
   // const [artistData, setArtistData] = useState(undefined);
 
@@ -20,7 +22,7 @@ const TopTracks = () => {
       try {
         const response = await axios({
           method: 'get',
-          url: `https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&offset=0&limit=20`,
+          url: `https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&offset=0&limit=${20}`,
           headers: {
             Authorization: 'Bearer ' + token,
             'Content-Type': 'application/json'
@@ -52,6 +54,7 @@ const TopTracks = () => {
       </p>
 
       <SelectTimeRange timeRange={timeRange} setTimeRange={setTimeRange} />
+      {/* <SelectLimit limit={limit} setLimit={setLimit} /> */}
       {tracks && (
         <>
           <AudioFeatures 

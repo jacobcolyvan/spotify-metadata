@@ -4,6 +4,7 @@ import UserContext from '../context/UserContext';
 import axios from 'axios';
 // import useWindowSize from '../utils/useWindowSize'
 import SelectTimeRange from '../components/SelectTimeRange';
+import SelectLimit from '../components/SelectLimit'
 import HipsterRating from '../components/HipsterRating';
 // import ArtistGenres from '../components/ArtistGenres'
 
@@ -18,6 +19,7 @@ const TopArtists = () => {
   const { token } = useContext(UserContext);
   const history = useHistory();
   const [timeRange, setTimeRange] = useState('short_term');
+  const [limit, setLimit] = useState(20);
   // const [artistHREFs, setArtistHREFs] = useState(undefined)
 
   // const size = useWindowSize();
@@ -27,7 +29,7 @@ const TopArtists = () => {
       try {
         const response = await axios({
           method: 'get',
-          url: `https://api.spotify.com/v1/me/top/artists?time_range=${timeRange}&offset=0&limit=20`,
+          url: `https://api.spotify.com/v1/me/top/artists?time_range=${timeRange}&offset=0&limit=${limit}`,
           headers: {
             Authorization: 'Bearer ' + token,
             'Content-Type': 'application/json'
@@ -48,7 +50,7 @@ const TopArtists = () => {
     } else {
       history.push('/');
     }
-  }, [history, token, timeRange]);
+  }, [history, token, timeRange, limit]);
 
   // useEffect(() => {
   //   console.log(window.innerWidth);
@@ -62,7 +64,7 @@ const TopArtists = () => {
         you actually listen to.
       </p>
       <SelectTimeRange timeRange={timeRange} setTimeRange={setTimeRange} />
-      
+      <SelectLimit limit={limit} setLimit={setLimit} />
 
       {artists && (
         <>
