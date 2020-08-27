@@ -34,6 +34,7 @@ const NavDrawer = ({
         onClose={toggleDrawer(false)}
         anchor={isMobile ? 'bottom' : 'left'}
       >
+        <div className='drawer-list'>
         <List className={isMobile ? 'list-bottom' : classes.list}>
           {buttons.map((button, index) => (
             <Button
@@ -50,6 +51,7 @@ const NavDrawer = ({
             </Button>
           ))}
         </List>
+        </div>
       </Drawer>
     </div>
   );
