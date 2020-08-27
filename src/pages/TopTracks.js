@@ -20,7 +20,7 @@ const TopTracks = () => {
       try {
         const response = await axios({
           method: 'get',
-          url: `https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&offset=0&limit=50`,
+          url: `https://api.spotify.com/v1/me/top/tracks?time_range=${timeRange}&offset=0&limit=20`,
           headers: {
             Authorization: 'Bearer ' + token,
             'Content-Type': 'application/json'

@@ -4,7 +4,13 @@ import UserContext from '../context/UserContext';
 
 import NavDrawer from './NavDrawer';
 
-import { Button, Typography, AppBar, Toolbar, Divider } from '@material-ui/core';
+import {
+  Button,
+  Typography,
+  AppBar,
+  Toolbar,
+  Divider
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -18,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2)
-  }, 
+  },
   subTitle: {
     paddingLeft: 24,
     paddingTop: 6,
@@ -56,7 +62,7 @@ const NavBar = ({ currentPage, setCurrentPage }) => {
             <Typography variant='h3' className={classes.title}>
               Metadata
             </Typography>
-            {(!isMobile && token) && (
+            {!isMobile && token && (
               <Typography variant='h5'>
                 {pageButtons[currentPage].name}
               </Typography>
@@ -67,9 +73,9 @@ const NavBar = ({ currentPage, setCurrentPage }) => {
               </Button>
             )}
           </Toolbar>
-          {(isMobile && token) && (
+          {isMobile && token && (
             <>
-              <Divider/>
+              <Divider />
               <Typography className={classes.subTitle} variant='h5'>
                 {pageButtons[currentPage].name}
               </Typography>
