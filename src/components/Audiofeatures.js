@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import UserContext from '../context/UserContext'
 import axios from 'axios'
-import Divider from '@material-ui/core/Divider';
+
 
 
 const Audiofeatures = ({trackIds, setAudioFeatures}) => {
@@ -19,7 +19,7 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
             'Content-Type': 'application/json'
           }
         });
-        
+        console.log(response.data.audio_features);
         
         return response.data.audio_features
       } catch (err) {
@@ -27,11 +27,10 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
       }
     }
 
-    const sumAudioFeatures = async () => {   
+    const sumAudioFeatures = async () => {  
       let features = await getAudioFeatures()
-      // console.log(features); 
 
-      let featureAverages = features[0];
+      let featureAverages = Object.assign({}, features[0])
       for (let i = 1; i < features.length; i++) {
         Object.keys(featureAverages).forEach((feature) => {
           if (features[i]) {
@@ -53,7 +52,6 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
         );
       });
       
-      // console.log(featureAverages);
       setAudioFeatures(features);
       setAverageAudioFeatures(featureAverages)
     }
@@ -64,7 +62,7 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
 
   return (
     <div className="audio-features-container">
-      <Divider />
+      <hr />
       <p>The Average audio features of the tracks are listed below. For information about a specific feature visit <a href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/" target="_blank" rel="noopener noreferrer">Spotify</a>.</p>
 
       {averageAudioFeatures && (

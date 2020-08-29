@@ -6,10 +6,12 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const Tracks = ({ tracks, artistData, audioFeatures }) => {
+
   return (
     <div>
       <div>
-        {tracks.map((track, index) => (
+        
+        {(tracks) && tracks.map((track, index) => (
           <Accordion 
           key={`artist${index}`} 
           variant='outlined'
@@ -25,20 +27,26 @@ const Tracks = ({ tracks, artistData, audioFeatures }) => {
             {artistData && (
               <AccordionDetails>
                 <Typography variant='body2'>
+                  
                   <li><b>Genres:</b> {artistData[index].data.genres.join(', ')}</li>   
                 </Typography>
               </AccordionDetails>
             )}
                      
-            {audioFeatures && (
+            {(audioFeatures) && (
               <AccordionDetails>
-                <Typography>
-                  {Object.keys(audioFeatures[index]).map((feature, index) => (
-                    <li className='feature' key={`feature${index}`}>
+                <ul>
+                {/* <Typography> */}
+                  {Object.keys(audioFeatures[index]).map((feature, index2) => (
+                    // console.log(audioFeatures[index])
+                    (audioFeatures[index] && ( 
+                    <li className='feature average' key={`feature${index2}`}>
                       <b><i>{feature}:</i></b> {audioFeatures[index][feature]}
                     </li>
-                  ))}
-                </Typography>
+                    )
+                  )))}
+                {/* </Typography> */}
+                </ul>
               </AccordionDetails>
             )}
           </Accordion>
