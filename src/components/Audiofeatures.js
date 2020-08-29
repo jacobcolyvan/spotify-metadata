@@ -19,7 +19,7 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
             'Content-Type': 'application/json'
           }
         });
-        console.log(response.data.audio_features);
+        // console.log(response.data.audio_features);
         
         return response.data.audio_features
       } catch (err) {
