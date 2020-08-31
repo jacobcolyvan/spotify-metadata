@@ -3,11 +3,11 @@ import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
 // import useWindowSize from '../utils/useWindowSize'
-import SelectTimeRange from '../components/SelectTimeRange';
-import SelectLimit from '../components/SelectLimit'
+
 import HipsterRating from '../components/HipsterRating';
 import ArtistGenres from '../components/ArtistGenres'
 import TopArtistList from '../components/TopArtistList'
+import SelectOptions from '../components/SelectOptions'
 
 
 const TopArtists = () => {
@@ -53,17 +53,13 @@ const TopArtists = () => {
 
   return (
     <div>
-      <br />
-      <p>
-        Just a quick note that longer timeframes are going to be closer to what you actually listen to.
-        <br/>
-        Also sometimes you may have to lower the limit to see results.
-      </p>
-      <br/>
-
-      <SelectTimeRange timeRange={timeRange} setTimeRange={setTimeRange} />
-      <SelectLimit limit={limit} setLimit={setLimit} />
-
+      
+      <SelectOptions 
+        timeRange={timeRange}
+        setTimeRange={setTimeRange}
+        limit={limit}
+        setLimit={setLimit}
+      />
 
       {artists && (
         <>

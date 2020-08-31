@@ -29,7 +29,7 @@ const App = () => {
       <Router>
         <UserContext.Provider value={{ token, setToken, isMobile }}>
           <NavBar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-          <Container maxWidth='sm' className='main'>
+          <Container maxWidth='md' className='main'>
             <Switch>
               <Route
                 exact

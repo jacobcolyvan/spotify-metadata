@@ -32,7 +32,8 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 6
   },
   toolbar: {
-    paddingLeft: '2px'
+    paddingLeft: '2px',
+    paddingRight: '2px'
   }
 }));
 
@@ -62,7 +63,7 @@ const NavBar = ({ currentPage, setCurrentPage }) => {
     <div>
       <div className={classes.root}>
         <AppBar position='static' color='default' style={{ backgroundColor: '#303030', color: 'white' }}>
-        <Container maxWidth='sm' >
+        <Container maxWidth='md' >
           <Toolbar className={classes.toolbar} >
             <Typography variant='h3' className={classes.title} style={{ color: 'white' }}>
               Metadata

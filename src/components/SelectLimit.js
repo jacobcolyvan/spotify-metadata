@@ -24,7 +24,7 @@ const SelectLimit = ({limit, setLimit, setAudioFeatures}) => {
         variant='outlined'
       >
         {limit_values.map(( value, index) => (
-          <MenuItem key={`limit${index}`} value={value}>{`${value} items`}</MenuItem>
+          <MenuItem key={`limit${index}`} value={value}>{`Show ${value} items`}</MenuItem>
         ))}
       </Select>
     </div>

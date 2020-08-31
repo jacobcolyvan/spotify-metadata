@@ -2,10 +2,11 @@ import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
-import SelectTimeRange from '../components/SelectTimeRange';
-import SelectLimit from '../components/SelectLimit'
+
 import Tracks from '../components/Tracks';
 import AudioFeatures from '../components/Audiofeatures';
+// import ArtistGenres from '../components/ArtistGenres'
+import SelectOptions from '../components/SelectOptions'
 
 const TopTracks = () => {
   const { token } = useContext(UserContext);
@@ -48,14 +49,14 @@ const TopTracks = () => {
 
   return (
     <div>
-      <br />
-      <p>
-        Just a quick note that longer timeframes are going to be closer to what
-        you actually listen to.
-      </p>
+      <SelectOptions 
+        timeRange={timeRange}
+        setTimeRange={setTimeRange}
+        limit={limit}
+        setLimit={setLimit}
+        setAudioFeatures={setAudioFeatures}
+      />
 
-      <SelectTimeRange timeRange={timeRange} setTimeRange={setTimeRange} setTracks={setTracks} tracks={tracks} />
-      <SelectLimit limit={limit} setLimit={setLimit} setAudioFeatures={setAudioFeatures}/>
       {trackIds && (
         <AudioFeatures 
           trackIds={trackIds} 
