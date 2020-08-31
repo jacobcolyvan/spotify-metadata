@@ -6,21 +6,17 @@ import axios from 'axios';
 import SelectTimeRange from '../components/SelectTimeRange';
 import SelectLimit from '../components/SelectLimit'
 import HipsterRating from '../components/HipsterRating';
-// import ArtistGenres from '../components/ArtistGenres'
+import ArtistGenres from '../components/ArtistGenres'
+import TopArtistList from '../components/TopArtistList'
 
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const TopArtists = () => {
   const [artists, setArtists] = useState(undefined);
   const { token } = useContext(UserContext);
   const history = useHistory();
-  const [timeRange, setTimeRange] = useState('short_term');
+  const [timeRange, setTimeRange] = useState('medium_term');
   const [limit, setLimit] = useState(20);
-  // const [artistHREFs, setArtistHREFs] = useState(undefined)
+  const [artistHREFs, setArtistHREFs] = useState(undefined)
 
   // const size = useWindowSize();
 
@@ -35,11 +31,10 @@ const TopArtists = () => {
             'Content-Type': 'application/json'
           }
         });
-        // const artistList = response.data.items.map((artist) => artist.name);
-        // console.log(response.data.items);
 
-        // setArtistHREFs(tracklist.map((track) => track.track.artists[0].href))
-        setArtists(response.data.items);
+        const tracklist = response.data.items
+        setArtistHREFs(tracklist.map((track) => track.href))
+        setArtists(tracklist);
       } catch (err) {
         console.log(err.message);
       }
@@ -60,43 +55,22 @@ const TopArtists = () => {
     <div>
       <br />
       <p>
-        Just a quick note that longer timeframes are going to be closer to what
-        you actually listen to.
+        Just a quick note that longer timeframes are going to be closer to what you actually listen to.
+        <br/>
+        Also sometimes you may have to lower the limit to see results.
       </p>
+      <br/>
+
       <SelectTimeRange timeRange={timeRange} setTimeRange={setTimeRange} />
       <SelectLimit limit={limit} setLimit={setLimit} />
 
+
       {artists && (
         <>
-          {/* <ArtistGenres artistHREFs={artistHREFs} /> */}
+          <hr/>
+          <ArtistGenres artistHREFs={artistHREFs} />
           <HipsterRating artists={artists} time_range={timeRange} />
-
-          <div>
-            {artists.map((artist, index) => (
-              <Accordion key={`artist${index}`} variant='outlined'>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls='panel1a-content'
-                  id='panel1a-header'
-                  style={{ flex: 1, margin: '0 20px 0 0' }}
-                >
-                  <Typography>{artist.name}</Typography>
-                </AccordionSummary>
-                {artist.genres.length > 0 && (
-                  <AccordionDetails>
-                    <Typography variant='body2'>
-                      <b>Genres:</b> {artist.genres.join(', ')}.
-                    </Typography>
-                  </AccordionDetails>
-                )}
-                <AccordionDetails>
-                  <Typography variant='body2'>
-                    <b>Popularity Rating:</b> {artist.popularity}
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-            ))}
-          </div>
+          <TopArtistList artists={artists}/>  
         </>
       )}
       {/* {size.width} */}

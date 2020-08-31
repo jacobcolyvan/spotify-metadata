@@ -9,7 +9,8 @@ import {
   Typography,
   AppBar,
   Toolbar,
-  Divider
+  Divider,
+  Container
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
@@ -17,10 +18,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -29,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: 24,
     paddingTop: 6,
     paddingBottom: 6
+  },
+  toolbar: {
+    paddingLeft: '2px'
   }
 }));
 
@@ -57,9 +61,10 @@ const NavBar = ({ currentPage, setCurrentPage }) => {
   return (
     <div>
       <div className={classes.root}>
-        <AppBar position='static' color='default'>
-          <Toolbar>
-            <Typography variant='h3' className={classes.title}>
+        <AppBar position='static' color='default' style={{ backgroundColor: '#303030', color: 'white' }}>
+        <Container maxWidth='sm' >
+          <Toolbar className={classes.toolbar} >
+            <Typography variant='h3' className={classes.title} style={{ color: 'white' }}>
               Metadata
             </Typography>
             {!isMobile && token && (
@@ -69,7 +74,7 @@ const NavBar = ({ currentPage, setCurrentPage }) => {
             )}
             {token && (
               <Button onClick={toggleDrawer(true)}>
-                <MenuIcon />
+                <MenuIcon style={{ fill: 'white'}}/>
               </Button>
             )}
           </Toolbar>
@@ -81,6 +86,7 @@ const NavBar = ({ currentPage, setCurrentPage }) => {
               </Typography>
             </>
           )}
+          </Container>
         </AppBar>
       </div>
 

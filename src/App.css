@@ -1,5 +1,25 @@
 * {
   font-family: 'Roboto';
+  margin: 0;
+}
+
+#root {
+  margin: 0;
+  /* padding: 0; */
+}
+
+/* .main * {
+  margin:  8px ;
+} */
+p {
+  margin: 8px 0;
+}
+hr {
+  margin: 24px 0;
+}
+
+html {
+  /* margin:  */
 }
 
 ul {

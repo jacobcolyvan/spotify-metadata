@@ -12,7 +12,7 @@ const TopTracks = () => {
   const [tracks, setTracks] = useState(undefined);
   const [trackIds, setTrackIds] = useState(undefined)
   const history = useHistory();
-  const [timeRange, setTimeRange] = useState('short_term');
+  const [timeRange, setTimeRange] = useState('medium_term');
   const [limit, setLimit] = useState(20);
   const [audioFeatures, setAudioFeatures] = useState(undefined);
   // const [artistData, setArtistData] = useState(undefined);

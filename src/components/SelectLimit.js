@@ -8,7 +8,7 @@ const limit_values = [5,10,20,50]
 const SelectLimit = ({limit, setLimit, setAudioFeatures}) => {
   const handleLimitChange = (event) => {
     // {setTracks && setTracks(undefined)}
-    setAudioFeatures(undefined)
+    setAudioFeatures && (setAudioFeatures(undefined))
     setLimit(event.target.value)
     
   }

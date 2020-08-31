@@ -6,7 +6,7 @@ import Playlists from './pages/Playlists';
 import NavBar from './components/NavBar';
 // import Typography from '@material-ui/core/Typography';
 import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import './App.css';
 import UserContext from './context/UserContext';
@@ -23,14 +23,13 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(undefined);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
-  
 
   return (
-    <div>
-      <Container maxWidth='md'>
-        <Router>
-          <UserContext.Provider value={{ token, setToken, isMobile }}>
+    <div className=''>
+      <Router>
+        <UserContext.Provider value={{ token, setToken, isMobile }}>
           <NavBar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+          <Container maxWidth='sm' className='main'>
             <Switch>
               <Route
                 exact
@@ -48,9 +47,9 @@ const App = () => {
 
               <Redirect to='/' />
             </Switch>
-          </UserContext.Provider>
-        </Router>
-      </Container>
+          </Container>
+        </UserContext.Provider>
+      </Router>
     </div>
   );
 };

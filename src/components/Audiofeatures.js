@@ -74,7 +74,7 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
           ))}
         </ul>
       )}
-      <br/><hr />
+      <hr />
     </div>
   )
 }

@@ -52,7 +52,7 @@ const ArtistGenres = ({ artistHREFs, setArtistData }) => {
 
         Promise.all(responseArray).then((data) => {
           // console.log(data);
-          setArtistData(data);
+          setArtistData && setArtistData(data);
           sumGenreData(data);
         });
       } catch (err) {
@@ -65,7 +65,7 @@ const ArtistGenres = ({ artistHREFs, setArtistData }) => {
 
   return (
     <div>
-      <p>The top 10 genres from this playlist are listed below (sorted by frequency).</p>
+      <p>The top 10 genres are listed below (sorted by frequency).</p>
       {averageGenres && (
         <ul>
           {averageGenres.map((genre, index) => (
@@ -75,7 +75,7 @@ const ArtistGenres = ({ artistHREFs, setArtistData }) => {
           ))}
         </ul>
       )}
-      <br/><hr />
+      <hr />
     </div>
   );
 };
