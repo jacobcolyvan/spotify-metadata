@@ -2,7 +2,7 @@ import React from 'react'
 import SelectTimeRange from './SelectTimeRange';
 import SelectLimit from './SelectLimit'
 
-const SelectOptions = ({timeRange, setTimeRange, limit, setLimit, setAudioFeatures}) => {
+const SelectOptions = ({timeRange, setTimeRange, limit, setLimit, resetData}) => {
   return (
     <div>
       <br />
@@ -14,7 +14,7 @@ const SelectOptions = ({timeRange, setTimeRange, limit, setLimit, setAudioFeatur
       <br/>
 
       <SelectTimeRange timeRange={timeRange} setTimeRange={setTimeRange} />
-      <SelectLimit limit={limit} setLimit={setLimit} setAudioFeatures={setAudioFeatures}/>
+      <SelectLimit limit={limit} setLimit={setLimit} resetData={resetData} />
     </div>
   )
 }

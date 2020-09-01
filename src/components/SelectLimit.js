@@ -5,10 +5,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 const limit_values = [5,10,20,50,99]
 
 
-const SelectLimit = ({limit, setLimit, setAudioFeatures}) => {
+const SelectLimit = ({limit, setLimit, resetData}) => {
   const handleLimitChange = (event) => {
-    // {setTracks && setTracks(undefined)}
-    setAudioFeatures && (setAudioFeatures(undefined))
+    resetData && (resetData())
     setLimit(event.target.value)
     
   }

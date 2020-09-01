@@ -6,12 +6,12 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const Tracks = ({ tracks, artistData, audioFeatures }) => {
-  console.log(artistData);
-  console.log(audioFeatures);
   return (
     <div>
       <ul>
         {tracks &&
+          artistData &&
+          audioFeatures &&
           tracks.map((track, index) => (
             <Accordion key={`artist${index}`} variant='outlined'>
               <AccordionSummary
@@ -24,46 +24,41 @@ const Tracks = ({ tracks, artistData, audioFeatures }) => {
                 </Typography>
               </AccordionSummary>
 
-              {artistData &&
-                (artistData[index].data.genres.length > 0 && (
-                  <AccordionDetails style={{ padding: '8px 16px 0 16px' }}>
-                    <Typography variant='body2'>
-                      <li>
-                        <b>Genres:</b>{' '}
-                        {artistData[index].data.genres.join(', ')}.
-                      </li>
-                    </Typography>
-                  </AccordionDetails>
-                ),
-                (
-                  <AccordionDetails>
-                    <Typography variant='body2'>
-                      <b>Artist Popularity Rating:</b>{' '}
-                      {artistData[index].data.popularity}
-                    </Typography>
-                  </AccordionDetails>
-                ))}
+            {(artistData[index].data.genres.length > 0) && (
+              <AccordionDetails style={{ padding: '8px 16px 0 16px' }}>
+                <Typography variant='body2'>
+                  <li>
+                    <b>Genres:</b> {artistData[index].data.genres.join(', ')}.
+                  </li>
+                </Typography>
+              </AccordionDetails>
+            )}
 
-              {audioFeatures && (
-                <AccordionDetails style={{ padding: '0 16px 16px 16px' }}>
-                  <ul>
-                    {Object.keys(audioFeatures[index]).map(
-                      (feature, index2) =>
-                        audioFeatures[index] && (
-                          <li
-                            className='feature average'
-                            key={`feature${index2}`}
-                          >
-                            <b>
-                              <i>{feature}:</i>
-                            </b>{' '}
-                            {audioFeatures[index][feature]}
-                          </li>
-                        )
-                    )}
-                  </ul>
-                </AccordionDetails>
-              )}
+              <AccordionDetails>
+                <Typography variant='body2'>
+                  <b>Artist Popularity Rating:</b>{' '}
+                  {artistData[index].data.popularity}
+                </Typography>
+              </AccordionDetails>
+
+              <AccordionDetails style={{ padding: '0 16px 16px 16px' }}>
+                <ul>
+                  {Object.keys(audioFeatures[index]).map(
+                    (feature, index2) =>
+                      audioFeatures[index] && (
+                        <li
+                          className='feature average'
+                          key={`feature${index2}`}
+                        >
+                          <b>
+                            <i>{feature}:</i>
+                          </b>{' '}
+                          {audioFeatures[index][feature]}
+                        </li>
+                      )
+                  )}
+                </ul>
+              </AccordionDetails>
             </Accordion>
           ))}
       </ul>
