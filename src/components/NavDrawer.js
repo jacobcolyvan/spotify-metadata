@@ -22,7 +22,8 @@ const NavDrawer = ({
   currentPage,
   setCurrentPage,
   buttons,
-  isMobile
+  isMobile,
+  setDrawer
 }) => {
   const classes = useStyles();
   const history = useHistory();
@@ -38,10 +39,12 @@ const NavDrawer = ({
         <List className={isMobile ? 'list-bottom' : classes.list}>
           {buttons.map((button, index) => (
             <Button
+              // style={{ color: (currentPage === index) ? '#F44336' : '#303030'}}
               color={currentPage === index ? 'secondary' : 'primary'}
               fullWidth
               onClick={() => {
                 setCurrentPage(index);
+                setDrawer(false)
                 history.push(button.link);
               }}
               className={classes.button}

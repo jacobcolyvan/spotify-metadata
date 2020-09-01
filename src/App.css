@@ -17,7 +17,7 @@ ul {
 }
 
 .item {
-  border: 1px solid #445488;
+  border: 1px solid #303030;
   padding: 6px 4px;
   border-radius: 4px;
 }
@@ -48,5 +48,5 @@ ul {
 }
 
 .main {
-  margin-bottom: 8px;
+  margin-bottom: 24px;
 }

@@ -35,7 +35,6 @@ const Tracks = ({ tracks, artistData, audioFeatures }) => {
               <AccordionDetails style={{ padding: '0 16px 16px 16px' }}>
                 <ul>
                   {Object.keys(audioFeatures[index]).map((feature, index2) => (
-                    // console.log(audioFeatures[index])
                     (audioFeatures[index] && ( 
                     <li className='feature average' key={`feature${index2}`}>
                       <b><i>{feature}:</i></b> {audioFeatures[index][feature]}

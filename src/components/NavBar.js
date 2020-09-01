@@ -1,7 +1,5 @@
 import React, { useState, useContext } from 'react';
 import UserContext from '../context/UserContext';
-// import { Tabs, Tab, AppBar } from '@material-ui/core';
-
 import NavDrawer from './NavDrawer';
 
 import {
@@ -27,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2)
   },
   subTitle: {
-    paddingLeft: 24,
+    paddingLeft: '4px',
     paddingTop: 6,
     paddingBottom: 6
   },
@@ -98,6 +96,7 @@ const NavBar = ({ currentPage, setCurrentPage }) => {
         setCurrentPage={setCurrentPage}
         buttons={pageButtons}
         isMobile={isMobile}
+        setDrawer={setDrawer}
       />
     </div>
   );

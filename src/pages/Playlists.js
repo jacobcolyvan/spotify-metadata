@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
 import Playlist from './Playlist';
-// import { Typography } from '@material-ui/core';
 
 const Playlists = () => {
   const history = useHistory();
@@ -23,14 +22,7 @@ const Playlists = () => {
           }
         });
 
-        // console.log(response);
         setPlaylists(response.data.items);
-        // const trackList = response.data.items.map((playlist) => [
-        //   playlist.name,
-        //   playlist.tracks.href,
-        //   playlist.description
-        // ]);
-        // setPlaylists(trackList);
       } catch (err) {
         console.log(err.message);
       }
@@ -56,7 +48,10 @@ const Playlists = () => {
   } else {
     return (
       <div>
-        <br />
+        <br/><br/>
+        <p>Here is a list of your top 50 most recent playlists, click on one to check out its data.</p>
+        <hr/>
+
         {playlists && (
           <ul>
             {playlists.map((playlist, index) => (
