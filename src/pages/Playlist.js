@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
 
-import PlaylistTracks from '../components/ShowPlaylistTracks';
+import Tracks from '../components/Tracks'
 import AudioFeatures from '../components/Audiofeatures';
 import ArtistGenres from '../components/ArtistGenres';
 
@@ -13,7 +13,7 @@ import ArtistGenres from '../components/ArtistGenres';
 const Playlist = ({ playlist }) => {
   const { token } = useContext(UserContext);
   const history = useHistory();
-  const [playlistTracks, setPlaylistTracks] = useState(undefined);
+  const [tracks, setTracks] = useState(undefined);
   const [trackIds, setTrackIds] = useState(undefined);
   const [artistHREFs, setArtistHREFs] = useState(undefined);
   const [audioFeatures, setAudioFeatures] = useState(undefined);
@@ -32,10 +32,9 @@ const Playlist = ({ playlist }) => {
         });
 
         const tracklist = response.data.tracks.items;
-        // console.log(tracklist);
         setTrackIds(tracklist.map((track) => track.track.id));
         setArtistHREFs(tracklist.map((track) => track.track.artists[0].href));
-        setPlaylistTracks(tracklist);
+        setTracks(tracklist.map((track) => track.track));
       } catch (err) {
         console.log(err.message);
       }
@@ -54,7 +53,7 @@ const Playlist = ({ playlist }) => {
       <h2>
         <i>{playlist.name}</i>
       </h2>
-      {playlistTracks && (
+      {tracks && (
         <>
           <AudioFeatures
             trackIds={trackIds}
@@ -64,8 +63,8 @@ const Playlist = ({ playlist }) => {
             artistHREFs={artistHREFs}
             setArtistData={setArtistData} 
           />
-          <PlaylistTracks
-            tracks={playlistTracks}
+          <Tracks
+            tracks={tracks}
             artistData={artistData}
             audioFeatures={audioFeatures} 
           />

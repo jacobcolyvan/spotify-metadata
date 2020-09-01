@@ -7,6 +7,7 @@ import Tracks from '../components/Tracks';
 import AudioFeatures from '../components/Audiofeatures';
 // import ArtistGenres from '../components/ArtistGenres'
 import SelectOptions from '../components/SelectOptions'
+import ArtistGenres from '../components/ArtistGenres'
 
 const TopTracks = () => {
   const { token } = useContext(UserContext);
@@ -16,7 +17,8 @@ const TopTracks = () => {
   const [timeRange, setTimeRange] = useState('medium_term');
   const [limit, setLimit] = useState(20);
   const [audioFeatures, setAudioFeatures] = useState(undefined);
-  // const [artistData, setArtistData] = useState(undefined);
+  const [artistData, setArtistData] = useState(undefined);
+  const [artistHREFs, setArtistHREFs] = useState(undefined)
 
   useEffect(() => {
     const getTracks = async () => {
@@ -31,6 +33,8 @@ const TopTracks = () => {
         });
 
         const tracklist = response.data.items;
+        // console.log(tracklist.map((track) => track.artists[0].href));
+        setArtistHREFs(tracklist.map((track) => track.artists[0].href))
         setTrackIds(tracklist.map((track) => track.id));
         setTracks(tracklist);
         
@@ -57,16 +61,24 @@ const TopTracks = () => {
         setAudioFeatures={setAudioFeatures}
       />
 
+      
+
       {trackIds && (
         <AudioFeatures 
           trackIds={trackIds} 
           setAudioFeatures={setAudioFeatures} 
         />
       )}
-      {tracks && (
+
+      {artistHREFs && (
+        <ArtistGenres artistHREFs={artistHREFs} setArtistData={setArtistData} />
+      )}
+
+      {(tracks && audioFeatures && artistData) && (
         <Tracks 
           tracks={tracks} 
           audioFeatures={audioFeatures} 
+          artistData={artistData}
         />
       )}
     </div>

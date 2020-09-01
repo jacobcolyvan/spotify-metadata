@@ -53,6 +53,7 @@ const ArtistGenres = ({ artistHREFs, setArtistData }) => {
         Promise.all(responseArray).then((data) => {
           // console.log(data);
           setArtistData && setArtistData(data);
+          // console.log(data);
           sumGenreData(data);
         });
       } catch (err) {
