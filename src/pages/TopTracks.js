@@ -70,11 +70,11 @@ const TopTracks = () => {
             setAudioFeatures={setAudioFeatures} 
           />
           <ArtistGenres artistHREFs={artistHREFs} setArtistData={setArtistData} />
-          <Tracks 
-            tracks={tracks} 
-            audioFeatures={audioFeatures} 
-            artistData={artistData}
-          />
+            <Tracks 
+              tracks={tracks} 
+              audioFeatures={audioFeatures} 
+              artistData={artistData}
+            />
         </>
       ) : (
         <DisplayError />
