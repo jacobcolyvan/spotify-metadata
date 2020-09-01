@@ -16,8 +16,7 @@ const HipsterRating = ({artists, time_range}) => {
     hipsterRating()
   }, [artists])
 
-  return (
-    
+  return (   
     <div>
       {popularityAverage && (
         <>

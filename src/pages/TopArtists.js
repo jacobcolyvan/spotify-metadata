@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
 // import useWindowSize from '../utils/useWindowSize'
+import DisplayError from '../components/DisplayError'
 
 import HipsterRating from '../components/HipsterRating';
 import ArtistGenres from '../components/ArtistGenres'
@@ -61,13 +62,15 @@ const TopArtists = () => {
         setLimit={setLimit}
       />
 
-      {artists && (
+      {(artists && artists.length > 0) > 0 ? (
         <>
           <hr/>
           <ArtistGenres artistHREFs={artistHREFs} />
           <HipsterRating artists={artists} time_range={timeRange} />
           <TopArtistList artists={artists}/>  
         </>
+      ) : (
+        <DisplayError />
       )}
       {/* {size.width} */}
     </div>

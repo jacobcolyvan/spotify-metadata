@@ -8,6 +8,7 @@ import AudioFeatures from '../components/Audiofeatures';
 // import ArtistGenres from '../components/ArtistGenres'
 import SelectOptions from '../components/SelectOptions'
 import ArtistGenres from '../components/ArtistGenres'
+import DisplayError from '../components/DisplayError'
 
 const TopTracks = () => {
   const { token } = useContext(UserContext);
@@ -62,24 +63,21 @@ const TopTracks = () => {
       />
 
       
-
-      {trackIds && (
-        <AudioFeatures 
-          trackIds={trackIds} 
-          setAudioFeatures={setAudioFeatures} 
-        />
-      )}
-
-      {artistHREFs && (
-        <ArtistGenres artistHREFs={artistHREFs} setArtistData={setArtistData} />
-      )}
-
-      {(tracks) && (
-        <Tracks 
-          tracks={tracks} 
-          audioFeatures={audioFeatures} 
-          artistData={artistData}
-        />
+      {(tracks && tracks.length > 0) ? (
+        <>
+          <AudioFeatures 
+            trackIds={trackIds} 
+            setAudioFeatures={setAudioFeatures} 
+          />
+          <ArtistGenres artistHREFs={artistHREFs} setArtistData={setArtistData} />
+          <Tracks 
+            tracks={tracks} 
+            audioFeatures={audioFeatures} 
+            artistData={artistData}
+          />
+        </>
+      ) : (
+        <DisplayError />
       )}
     </div>
   );
