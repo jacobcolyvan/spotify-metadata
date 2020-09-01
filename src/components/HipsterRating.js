@@ -10,16 +10,21 @@ const HipsterRating = ({artists, time_range}) => {
         popularityRating += artist.popularity;
       });
       popularityRating = 100 - (popularityRating / artists.length).toFixed(2);
-      setPopularityAverage(popularityRating);
+      popularityRating && setPopularityAverage(popularityRating);
     }
 
     hipsterRating()
   }, [artists])
 
   return (
+    
     <div>
-      <p>The <i>HipsterRating</i> of your top artists ({time_range}) is: <b>{popularityAverage}</b>.</p>
-      <br/>
+      {popularityAverage && (
+        <>
+          <p>The <i>HipsterRating</i> of your top artists ({time_range}) is: <b>{popularityAverage}</b>.</p>
+          <br/>
+        </>
+      )}
     </div>
   )
 }

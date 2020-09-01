@@ -74,7 +74,7 @@ const TopTracks = () => {
         <ArtistGenres artistHREFs={artistHREFs} setArtistData={setArtistData} />
       )}
 
-      {(tracks && audioFeatures && artistData) && (
+      {(tracks) && (
         <Tracks 
           tracks={tracks} 
           audioFeatures={audioFeatures} 

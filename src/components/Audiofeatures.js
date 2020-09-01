@@ -52,8 +52,8 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
         );
       });
       
-      setAudioFeatures(features);
-      setAverageAudioFeatures(featureAverages)
+      features && setAudioFeatures(features);
+      featureAverages && setAverageAudioFeatures(featureAverages)
     }
 
     sumAudioFeatures()
