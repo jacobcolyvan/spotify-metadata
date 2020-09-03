@@ -31,6 +31,7 @@ const Playlist = ({ playlist }) => {
           }
         });
 
+        console.log(playlist);
         const tracklist = response.data.tracks.items;
         console.log(tracklist);
         setTrackIds(tracklist.map((track) => track.track.id));
@@ -50,10 +51,11 @@ const Playlist = ({ playlist }) => {
 
   return (
     <div>
-      <br />
-      <h2>
-        <i>{playlist.name}</i>
-      </h2>
+      <br /><br/>
+      <div className='single-playlist-div'>
+          <h2><i>{playlist.name}</i></h2>
+          {playlist.images[0] && <img src={playlist.images[0].url} alt={`playlist img`} width="120" height="120" />}
+        </div>
       {tracks && (
         <>
           <AudioFeatures
