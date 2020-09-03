@@ -2,7 +2,7 @@ import React from 'react'
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
-const limit_values = [5,10,20,50,99]
+const limit_values = [5,10,20,50]
 
 
 const SelectLimit = ({limit, setLimit, resetData}) => {

@@ -5,7 +5,6 @@ import axios from 'axios';
 
 import Tracks from '../components/Tracks';
 import AudioFeatures from '../components/Audiofeatures';
-// import ArtistGenres from '../components/ArtistGenres'
 import SelectOptions from '../components/SelectOptions';
 import ArtistGenres from '../components/ArtistGenres';
 import DisplayError from '../components/DisplayError';
@@ -35,7 +34,6 @@ const TopTracks = () => {
         });
 
         const tracklist = response.data.items;
-        // console.log(tracklist.map((track) => track.artists[0].href));
         setArtistHREFs(tracklist.map((track) => track.artists[0].href));
         setTrackIds(tracklist.map((track) => track.id));
         setTracks(tracklist);

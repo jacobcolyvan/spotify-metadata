@@ -5,6 +5,7 @@
 
 p {
   margin: 8px 0;
+  font-size: 18px;
 }
 hr {
   margin: 24px 0;
@@ -49,4 +50,10 @@ ul {
 
 .main {
   margin-bottom: 24px;
+}
+
+.single-playlist-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -9,6 +9,8 @@ const Playlists = () => {
   const { token } = useContext(UserContext);
   const [playlists, setPlaylists] = useState(undefined);
   const [playlist, setPlaylist] = useState(undefined);
+  // const [playlistTotalAmount, setPlaylistTotalAmount] = useState(undefined)
+  // const [playlistSearchOffset, setPlaylistSearchOffset] = useState(0)
 
 
   useEffect(() => {
@@ -16,13 +18,16 @@ const Playlists = () => {
       try {
         const response = await axios({
           method: 'get',
-          url: 'https://api.spotify.com/v1/me/playlists?&limit=50',
+          url: `https://api.spotify.com/v1/me/playlists?limit=50&offset=${0}`,
           headers: {
             Authorization: 'Bearer ' + token,
             'Content-Type': 'application/json'
           }
         });
 
+        // console.log(response);
+        // setPlaylistTotalAmount(response.data.total)
+        // console.log(response.data.items[0].images[2].url);
         setPlaylists(response.data.items);
       } catch (err) {
         console.log(err.message);
@@ -61,7 +66,10 @@ const Playlists = () => {
                 key={`track${index}`}
                 onClick={() => loadPlaylistComponent(index)}
               >
-                {playlist.name}
+                <div className='single-playlist-div'>
+                  <div>{playlist.name}</div>
+                  {playlist.images[0] && <img src={playlist.images[0].url} alt={`playlist img`} width="60" height="60" />}
+                </div>
               </li>
             ))}
           </ul>
