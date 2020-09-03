@@ -65,7 +65,7 @@ const Playlists = () => {
     return (
       <div>
         <br/><br/>
-        <p>Here is a list of your top 50 most recent playlists, click on one to check out its data.</p>
+        <p>Here is a list of your playlists, click on one to check out its data.</p>
         <hr/>
 
         {playlists && (

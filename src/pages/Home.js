@@ -9,10 +9,9 @@ const Home = ({ location, setCurrentPage }) => {
 
   useEffect(() => {
     if (location.hash.split('=')[1]) {
-      // console.log(location.hash.split('=')[1])
       setToken(location.hash.split('=')[1]);
       setCurrentPage(0);
-      history.push('/playlists');
+      history.push('/top-artists');
     }
   }, [setToken, token, history, location.hash, setCurrentPage]);
 
