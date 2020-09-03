@@ -2,16 +2,21 @@ import React, { useEffect, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import axios from 'axios';
+
 import Playlist from './Playlist';
+import PageButtons from '../components/PageButtons'
+
 
 const Playlists = () => {
   const history = useHistory();
   const { token, playlist, setPlaylist } = useContext(UserContext);
   const [playlists, setPlaylists] = useState(undefined);
   
-  
-  // const [playlistTotalAmount, setPlaylistTotalAmount] = useState(undefined)
-  // const [playlistSearchOffset, setPlaylistSearchOffset] = useState(0)
+  const [playlistTotalAmount, setPlaylistTotalAmount] = useState(undefined)
+  const [playlistSearchOffset, setPlaylistSearchOffset] = useState(0)
+
+
+  // const [playlistPage, setPlaylistPage] = useState(1)
 
 
   useEffect(() => {
@@ -19,15 +24,16 @@ const Playlists = () => {
       try {
         const response = await axios({
           method: 'get',
-          url: `https://api.spotify.com/v1/me/playlists?limit=50&offset=${0}`,
+          url: `https://api.spotify.com/v1/me/playlists?limit=50&offset=${playlistSearchOffset}`,
           headers: {
             Authorization: 'Bearer ' + token,
             'Content-Type': 'application/json'
           }
         });
 
-        // console.log(response);
-        // setPlaylistTotalAmount(response.data.total)
+        console.log(response.data.total);
+        console.log(response.data.items)
+        setPlaylistTotalAmount(response.data.total)
         // console.log(response.data.items[0].images[2].url);
         setPlaylists(response.data.items);
       } catch (err) {
@@ -40,7 +46,7 @@ const Playlists = () => {
     } else {
       getPlaylists();
     }
-  }, [history, token]);
+  }, [history, token, playlistSearchOffset]);
 
   const loadPlaylistComponent = (index) => {
     setPlaylist(playlists[index]);
@@ -77,6 +83,14 @@ const Playlists = () => {
               </li>
             ))}
           </ul>
+        )}
+
+        {playlistTotalAmount && (
+          <PageButtons 
+            playlistTotalAmount={playlistTotalAmount}
+            offset={playlistSearchOffset}
+            setOffset={setPlaylistSearchOffset}
+          />
         )}
       </div>
     );

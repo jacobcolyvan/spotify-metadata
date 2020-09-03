@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import Home from './pages/Home';
-import TopArtists from './pages/TopArtists';
-import TopTracks from './pages/TopTracks';
-import Playlists from './pages/Playlists';
-import NavBar from './components/NavBar';
-// import Typography from '@material-ui/core/Typography';
-import { useTheme } from '@material-ui/core/styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-
-import './App.css';
 import UserContext from './context/UserContext';
-import { Container } from '@material-ui/core';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect
 } from 'react-router-dom';
+import './App.css';
+
+import Home from './pages/Home';
+import TopArtists from './pages/TopArtists';
+import TopTracks from './pages/TopTracks';
+import Playlists from './pages/Playlists';
+import NavBar from './components/NavBar';
+import { useTheme } from '@material-ui/core/styles';
+import { Container, useMediaQuery} from '@material-ui/core';
+
+
 
 const App = () => {
   const [token, setToken] = useState(undefined);
@@ -36,8 +36,7 @@ const App = () => {
           <Container maxWidth='md' className='main'>
             <Switch>
               <Route
-                exact
-                path='/'
+                exact path='/'
                 render={(props) => (
                   <Home
                     location={props.location}
@@ -48,13 +47,6 @@ const App = () => {
               <Route exact path='/top-artists' component={TopArtists} />
               <Route exact path='/top-tracks' component={TopTracks} />
               <Route path='/playlists' component={Playlists} />
-              {/* <Route path='/playlists' render={() => (
-                  <Playlists
-                    playlist={playlist} 
-                    setPlaylist={setPlaylist}
-                  />
-                )}
-              /> */}
 
               <Redirect to='/' />
             </Switch>

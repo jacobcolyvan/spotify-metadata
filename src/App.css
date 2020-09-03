@@ -45,7 +45,6 @@ ul {
   height:100%;
   display: flex;
   align-items: center;
-  /* padding-bottom: */
 }
 
 .main {
@@ -57,4 +56,9 @@ ul {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.page-buttons {
+  width: 100%;
+  margin-top: 24px;
 }

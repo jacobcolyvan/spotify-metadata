@@ -1,11 +1,9 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import { Button } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
+import { makeStyles}  from '@material-ui/core/styles';
+import { Button, List, Drawer } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   list: {
@@ -16,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(2)
   },
 }));
+
 
 const NavDrawer = ({
   drawer,

@@ -12,7 +12,7 @@ const Home = ({ location, setCurrentPage }) => {
       // console.log(location.hash.split('=')[1])
       setToken(location.hash.split('=')[1]);
       setCurrentPage(0);
-      history.push('/top-artists');
+      history.push('/playlists');
     }
   }, [setToken, token, history, location.hash, setCurrentPage]);
 
