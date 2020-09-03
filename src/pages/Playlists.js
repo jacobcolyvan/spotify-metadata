@@ -15,10 +15,6 @@ const Playlists = () => {
   const [playlistTotalAmount, setPlaylistTotalAmount] = useState(undefined)
   const [playlistSearchOffset, setPlaylistSearchOffset] = useState(0)
 
-
-  // const [playlistPage, setPlaylistPage] = useState(1)
-
-
   useEffect(() => {
     const getPlaylists = async () => {
       try {
@@ -31,7 +27,7 @@ const Playlists = () => {
           }
         });
 
-        console.log(response.data.items)
+        // console.log(response.data.items)
         setPlaylistTotalAmount(response.data.total)
         setPlaylists(response.data.items);
       } catch (err) {

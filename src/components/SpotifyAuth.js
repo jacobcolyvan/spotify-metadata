@@ -5,7 +5,8 @@ const SpotifyAuth = () => {
   const scopes = [
     'user-read-private',
     'playlist-read-private',
-    'user-library-read'
+    'user-library-read',
+    'user-top-read'
   ];
 
   return (

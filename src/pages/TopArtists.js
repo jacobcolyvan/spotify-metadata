@@ -23,6 +23,7 @@ const TopArtists = () => {
 
   useEffect(() => {
     const getArtists = async () => {
+      console.log(token)
       try {
         const response = await axios({
           method: 'get',
@@ -32,7 +33,8 @@ const TopArtists = () => {
             'Content-Type': 'application/json'
           }
         });
-
+        
+        
         const tracklist = response.data.items
         setArtistHREFs(tracklist.map((track) => track.href))
         setArtists(tracklist);
