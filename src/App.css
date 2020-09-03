@@ -66,3 +66,7 @@ ul {
 .playlist-name {
   word-wrap: break-word;
 }
+
+.playlist-image {
+  border: 1px solid black;
+}

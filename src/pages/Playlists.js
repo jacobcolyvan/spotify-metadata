@@ -31,10 +31,8 @@ const Playlists = () => {
           }
         });
 
-        console.log(response.data.total);
         console.log(response.data.items)
         setPlaylistTotalAmount(response.data.total)
-        // console.log(response.data.items[0].images[2].url);
         setPlaylists(response.data.items);
       } catch (err) {
         console.log(err.message);
@@ -65,8 +63,14 @@ const Playlists = () => {
     return (
       <div>
         <br/><br/>
-        <p>Here is a list of your playlists, click on one to check out its data.</p>
-        <hr/>
+        {playlistTotalAmount && (
+          <>
+            <p>You follow / have created <b>{playlistTotalAmount}</b> playlists. Click on one to check out its data.</p>
+            <hr/>
+          </>
+        )}
+        
+        
 
         {playlists && (
           <ul>
