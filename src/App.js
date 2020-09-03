@@ -23,12 +23,16 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(undefined);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'));
+  const [playlist, setPlaylist] = useState(undefined);
 
   return (
     <div className=''>
       <Router>
-        <UserContext.Provider value={{ token, setToken, isMobile }}>
-          <NavBar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <UserContext.Provider value={{ token, setToken, isMobile, playlist, setPlaylist }}>
+          <NavBar 
+            currentPage={currentPage} 
+            setCurrentPage={setCurrentPage}
+          />
           <Container maxWidth='md' className='main'>
             <Switch>
               <Route
@@ -43,7 +47,14 @@ const App = () => {
               />
               <Route exact path='/top-artists' component={TopArtists} />
               <Route exact path='/top-tracks' component={TopTracks} />
-              <Route exact path='/playlists' component={Playlists} />
+              <Route path='/playlists' component={Playlists} />
+              {/* <Route path='/playlists' render={() => (
+                  <Playlists
+                    playlist={playlist} 
+                    setPlaylist={setPlaylist}
+                  />
+                )}
+              /> */}
 
               <Redirect to='/' />
             </Switch>

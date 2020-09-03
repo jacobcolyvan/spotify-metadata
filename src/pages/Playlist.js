@@ -31,9 +31,8 @@ const Playlist = ({ playlist }) => {
           }
         });
 
-        console.log(playlist);
         const tracklist = response.data.tracks.items;
-        console.log(tracklist);
+        // console.log(tracklist);
         setTrackIds(tracklist.map((track) => track.track.id));
         setArtistHREFs(tracklist.map((track) => track.track.artists[0].href));
         setTracks(tracklist.map((track) => track.track));

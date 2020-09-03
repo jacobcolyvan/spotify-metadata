@@ -6,9 +6,10 @@ import Playlist from './Playlist';
 
 const Playlists = () => {
   const history = useHistory();
-  const { token } = useContext(UserContext);
+  const { token, playlist, setPlaylist } = useContext(UserContext);
   const [playlists, setPlaylists] = useState(undefined);
-  const [playlist, setPlaylist] = useState(undefined);
+  
+  
   // const [playlistTotalAmount, setPlaylistTotalAmount] = useState(undefined)
   // const [playlistSearchOffset, setPlaylistSearchOffset] = useState(0)
 
@@ -43,7 +44,10 @@ const Playlists = () => {
 
   const loadPlaylistComponent = (index) => {
     setPlaylist(playlists[index]);
+    history.push(`/playlists/${index}`)
   };
+
+
 
   if (playlist) {
     return (

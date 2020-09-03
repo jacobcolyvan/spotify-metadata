@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import UserContext from '../context/UserContext';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -27,6 +28,7 @@ const NavDrawer = ({
 }) => {
   const classes = useStyles();
   const history = useHistory();
+  const { setPlaylist } = useContext(UserContext);
 
   return (
     <div>
@@ -45,7 +47,9 @@ const NavDrawer = ({
               onClick={() => {
                 setCurrentPage(index);
                 setDrawer(false)
+                if (button.name === 'Playlists') setPlaylist(undefined);
                 history.push(button.link);
+                
               }}
               className={classes.button}
               key={`button${index}`}
