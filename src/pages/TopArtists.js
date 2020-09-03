@@ -23,7 +23,6 @@ const TopArtists = () => {
 
   useEffect(() => {
     const getArtists = async () => {
-      console.log(token)
       try {
         const response = await axios({
           method: 'get',

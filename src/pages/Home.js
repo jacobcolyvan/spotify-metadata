@@ -9,8 +9,6 @@ const Home = ({ location, setCurrentPage }) => {
 
   useEffect(() => {
     if (location.hash.split('=')[1]) {
-      console.log(location)
-      console.log(location.hash.split('=')[1].split('&token')[0])
       setToken(location.hash.split('=')[1].split('&token')[0]);
       setCurrentPage(0);
       history.push('/top-artists');
