@@ -77,7 +77,7 @@ const Playlists = () => {
                 onClick={() => loadPlaylistComponent(index)}
               >
                 <div className='single-playlist-div'>
-                  <div>{playlist.name}</div>
+                  <div className='playlist-name'>{playlist.name}</div>
                   {playlist.images[0] && <img src={playlist.images[0].url} alt={`playlist img`} width="60" height="60" />}
                 </div>
               </li>
