@@ -61,8 +61,10 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
 
 
   return (
+    <>
+    <hr />
     <div className="audio-features-container">
-      <hr />
+      
       <p>The Average audio features of the tracks are listed below. For information about a specific feature visit <a href="https://developer.spotify.com/documentation/web-api/reference/tracks/get-audio-features/" target="_blank" rel="noopener noreferrer">Spotify</a>.</p>
 
       {averageAudioFeatures && (
@@ -74,8 +76,9 @@ const Audiofeatures = ({trackIds, setAudioFeatures}) => {
           ))}
         </ul>
       )}
-      <hr />
     </div>
+    <hr />
+    </>
   )
 }
 

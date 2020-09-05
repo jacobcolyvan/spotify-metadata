@@ -17,16 +17,16 @@ const Home = ({ location, setCurrentPage }) => {
 
   return (
     <div>
-      <br />
-      <p>
-        This is a website for checking out your own Spotify listening habits, driven by how Spotify categorises it all in their system.
-        <br />
-        See data about your top-tracks, top-artists, and playlists.
-      </p>
-      <p>
-        You'll have to authorise Spotify before you can start using it though:
-      </p>
-      <br />
+      {/* <p>Spotify is the biggest music streaming website in the world.</p> */}
+      <p id='wesbite-feature-p'>This is a website to:</p>
+      <ul className='website-feature-list'>
+        <li>Check out your Spotify listening habits. </li>
+        <li>See genres, popularity and track features for the music ou listen to.</li>
+        <li>Exploring your top-tracks, top-artists, and playlists.</li>
+      </ul>
+
+      <br/>
+      <p><i>Authorise Spotify to start: </i></p>
       <SpotifyAuth />
     </div>
   );

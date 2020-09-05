@@ -15,6 +15,7 @@ import Playlists from './pages/Playlists';
 import NavBar from './components/NavBar';
 import { useTheme } from '@material-ui/core/styles';
 import { Container, useMediaQuery} from '@material-ui/core';
+import Paper from '@material-ui/core/Paper';
 
 
 
@@ -34,6 +35,7 @@ const App = () => {
             setCurrentPage={setCurrentPage}
           />
           <Container maxWidth='md' className='main'>
+          <Paper variant='outlined' style={{padding: '12px', margin:'24px 0'}}>
             <Switch>
               <Route
                 exact path='/'
@@ -50,6 +52,7 @@ const App = () => {
 
               <Redirect to='/' />
             </Switch>
+          </Paper>
           </Container>
         </UserContext.Provider>
       </Router>

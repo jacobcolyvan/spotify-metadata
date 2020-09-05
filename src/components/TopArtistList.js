@@ -20,15 +20,21 @@ const TopArtistList = ({artists}) => {
             <Typography>{artist.name}</Typography>
           </AccordionSummary>
           {artist.genres.length > 0 && (
-            <AccordionDetails>
+            <AccordionDetails style={{padding: '8px 16px'}}>
               <Typography variant='body2'>
-                <b>Genres:</b> {artist.genres.join(', ')}.
+                <div className='accordion-div'>
+                  <li className='accordion-li li'><b>Genres: </b></li>
+                  <li className='accordion-li2 li'>{artist.genres.join(', ')}s</li>
+                </div>
               </Typography>
             </AccordionDetails>
           )}
           <AccordionDetails>
             <Typography variant='body2'>
-              <b>Popularity Rating:</b> {artist.popularity}
+              <div className='accordion-div'>
+                  <li className='accordion-li li'><b>Popularity Rating:</b></li>
+                  <li className='accordion-li2 li'>{artist.popularity}</li>
+                </div>
             </Typography>
           </AccordionDetails>
         </Accordion>

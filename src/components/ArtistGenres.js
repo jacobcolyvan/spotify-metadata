@@ -65,7 +65,8 @@ const ArtistGenres = ({ artistHREFs, setArtistData }) => {
   }, [token, artistHREFs, setArtistData]);
 
   return (
-    <div>
+    <>
+    <div className='average-genres'>
       <p>The top 10 genres are listed below (sorted by frequency).</p>
       {averageGenres && (
         <ul>
@@ -76,8 +77,10 @@ const ArtistGenres = ({ artistHREFs, setArtistData }) => {
           ))}
         </ul>
       )}
-      <hr />
+      
     </div>
+    <hr />
+    </>
   );
 };
 

@@ -27,27 +27,30 @@ const Tracks = ({ tracks, artistData, audioFeatures }) => {
             {(artistData[index].data.genres.length > 0) && (
               <AccordionDetails style={{ padding: '8px 16px 0 16px' }}>
                 <Typography variant='body2'>
-                  <li>
-                    <b>Genres:</b> {artistData[index].data.genres.join(', ')}.
-                  </li>
+                  <div className='accordion-div'>
+                    <li className='accordion-li li'><b>Genres:</b></li>
+                    <li className='accordion-li2 li'>{artistData[index].data.genres.join(', ')}.</li>
+                  </div>
                 </Typography>
               </AccordionDetails>
             )}
 
-              <AccordionDetails>
+              <AccordionDetails style={{ padding: '8px 16px 0 16px' }}>
                 <Typography variant='body2'>
-                  <b>Artist Popularity Rating:</b>{' '}
-                  {artistData[index].data.popularity}
+                  <div className='accordion-div'>
+                    <li className='accordion-li li'><b>Artist Popularity Rating:</b></li>
+                    <li className='accordion-li2 li'>{artistData[index].data.popularity}</li>
+                  </div>
                 </Typography>
               </AccordionDetails>
 
-              <AccordionDetails style={{ padding: '0 16px 16px 16px' }}>
+              <AccordionDetails style={{ padding: '0 8px 16px 16px' }}>
                 <ul>
                   {Object.keys(audioFeatures[index]).map(
                     (feature, index2) =>
                       audioFeatures[index] && (
                         <li
-                          className='feature average'
+                          className='feature average li'
                           key={`feature${index2}`}
                         >
                           <b>
