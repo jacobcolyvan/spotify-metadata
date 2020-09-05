@@ -21,7 +21,7 @@ const Home = ({ location, setCurrentPage }) => {
       <p id='wesbite-feature-p'>This is a website to:</p>
       <ul className='website-feature-list'>
         <li>Check out your Spotify listening habits. </li>
-        <li>See genres, popularity and track features for the music ou listen to.</li>
+        <li>See genres, popularity and track features for the music you listen to.</li>
         <li>Exploring your top-tracks, top-artists, and playlists.</li>
       </ul>
 

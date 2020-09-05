@@ -24,7 +24,7 @@ const TopArtistList = ({artists}) => {
               <Typography variant='body2'>
                 <div className='accordion-div'>
                   <li className='accordion-li li'><b>Genres: </b></li>
-                  <li className='accordion-li2 li'>{artist.genres.join(', ')}s</li>
+                  <li className='accordion-li2 li'>{artist.genres.join(', ')}</li>
                 </div>
               </Typography>
             </AccordionDetails>

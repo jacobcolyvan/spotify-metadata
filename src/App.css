@@ -23,7 +23,7 @@ ul {
 }
 
 .item {
-  border: 1px solid #303030;
+  border: 1px solid #c4c4c4;
   padding: 6px 4px;
   border-radius: 4px;
 }
@@ -54,6 +54,7 @@ ul {
 
 .main {
   margin-bottom: 24px;
+  margin: 0 8px;
 }
 
 .single-playlist-div {
@@ -68,13 +69,25 @@ ul {
   margin-top: 24px;
 }
 
+
+
 .playlist-name {
+  word-wrap: break-word;
+}
+.playlist-description {
   word-wrap: break-word;
 }
 
 .playlist-image {
   border: 1px solid black;
 }
+
+.playlist-info {
+  padding-right: 12px;
+}
+
+
+
 
 .audio-features-container, .average-genres {
   padding: 0 8px;
@@ -87,8 +100,8 @@ ul {
 
 .website-feature-list {
   list-style-type: circle;
-  list-style-position: inside;
-  margin-left: 12px;
+  /* list-style-position: inside; */
+  margin-left: 24px;
 }
 
 .website-feature-list li {

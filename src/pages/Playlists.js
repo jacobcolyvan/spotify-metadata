@@ -58,10 +58,9 @@ const Playlists = () => {
   } else {
     return (
       <div>
-        {/* <br/><br/> */}
         {playlistTotalAmount && (
           <>
-            <p>You follow / have created <b>{playlistTotalAmount}</b> playlists. Click on one to check out its data.</p>
+            <p>You follow / have created <i>{playlistTotalAmount}</i> playlists. Click on one to check out its data.</p>
             <hr/>
           </>
         )}

@@ -27,14 +27,14 @@ const App = () => {
   const [playlist, setPlaylist] = useState(undefined);
 
   return (
-    <div className=''>
+    <div>
       <Router>
         <UserContext.Provider value={{ token, setToken, isMobile, playlist, setPlaylist }}>
           <NavBar 
             currentPage={currentPage} 
             setCurrentPage={setCurrentPage}
           />
-          <Container maxWidth='md' className='main'>
+          <Container maxWidth='md' className='main' style={{padding: '0 8px'}} >
           <Paper variant='outlined' style={{padding: '12px', margin:'24px 0'}}>
             <Switch>
               <Route

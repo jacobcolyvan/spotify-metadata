@@ -61,7 +61,7 @@ const NavBar = ({ currentPage, setCurrentPage }) => {
     <div>
       <div className={classes.root}>
         <AppBar position='static' color='default' style={{ backgroundColor: '#303030', color: 'white' }}>
-        <Container maxWidth='md' >
+        <Container maxWidth='md'  style={{padding: '0 8px'}}>
           <Toolbar className={classes.toolbar} >
             <Typography variant='h3' className={classes.title} style={{ color: 'white' }}>
               Metadata
