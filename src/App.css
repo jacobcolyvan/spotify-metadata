@@ -60,9 +60,7 @@ ul {
 
 #main {
   margin-bottom: 24px;
-  /* margin: 0; */
   padding: 0 6px;
-  /* padding-lef */
 }
 
 .main-paper {
@@ -139,7 +137,7 @@ ul {
   :root {
     /* --fontsize-nav: 1.2rem; */
     /* --typing-font: 2rem; */
-    --fontsize-p: 1.05rem;
+    --fontsize-p: 1.1rem;
   }
 
   .main-paper {
@@ -152,7 +150,7 @@ ul {
     /* --fontsize-nav: 1.2rem;
     /* --sidebar-flex: 0; */
     /* --typing-font: 2rem; */
-    --fontsize-p: 0.9rem;
+    --fontsize-p: 1rem;
   }
 
   .main-paper {
@@ -160,6 +158,6 @@ ul {
   }
 
   #main {
-    padding: 0 3px;
+    padding: 0 4px;
   }
 }
