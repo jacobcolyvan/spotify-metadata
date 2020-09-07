@@ -5,7 +5,6 @@ import SelectLimit from './SelectLimit'
 const SelectOptions = ({timeRange, setTimeRange, limit, setLimit, resetData}) => {
   return (
     <div>
-      {/* <br /> */}
       <p>
         Just a quick note that longer timeframes are going to be closer to what you actually listen to.
         <br/>

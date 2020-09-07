@@ -27,32 +27,32 @@ const App = () => {
   const [playlist, setPlaylist] = useState(undefined);
 
   return (
-    <div>
+    <div className=''>
       <Router>
         <UserContext.Provider value={{ token, setToken, isMobile, playlist, setPlaylist }}>
           <NavBar 
             currentPage={currentPage} 
             setCurrentPage={setCurrentPage}
           />
-          <Container maxWidth='md' className='main' style={{padding: '0 8px'}} >
-          <Paper variant='outlined' style={{padding: '12px', margin:'24px 0'}}>
-            <Switch>
-              <Route
-                exact path='/'
-                render={(props) => (
-                  <Home
-                    location={props.location}
-                    setCurrentPage={setCurrentPage}
-                  />
-                )}
-              />
-              <Route exact path='/top-artists' component={TopArtists} />
-              <Route exact path='/top-tracks' component={TopTracks} />
-              <Route path='/playlists' component={Playlists} />
+          <Container maxWidth='md' id='main'>
+            <Paper variant='outlined' className='main-paper' style={{}}>
+              <Switch>
+                <Route
+                  exact path='/'
+                  render={(props) => (
+                    <Home
+                      location={props.location}
+                      setCurrentPage={setCurrentPage}
+                    />
+                  )}
+                />
+                <Route exact path='/top-artists' component={TopArtists} />
+                <Route exact path='/top-tracks' component={TopTracks} />
+                <Route path='/playlists' component={Playlists} />
 
-              <Redirect to='/' />
-            </Switch>
-          </Paper>
+                <Redirect to='/' />
+              </Switch>
+            </Paper>
           </Container>
         </UserContext.Provider>
       </Router>

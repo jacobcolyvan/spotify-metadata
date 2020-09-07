@@ -77,7 +77,7 @@ const Playlists = () => {
               >
                 <div className='single-playlist-div'>
                   <div className='playlist-name'>{playlist.name}</div>
-                  {playlist.images[0] && <img src={playlist.images[0].url} alt={`playlist img`} width="60" height="60" />}
+                  {playlist.images[0] && <img src={playlist.images[0].url} alt={`playlist img`} width="60" height="60" className='playlist-image'/>}
                 </div>
               </li>
             ))}

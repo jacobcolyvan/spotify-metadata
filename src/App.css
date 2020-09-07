@@ -1,3 +1,9 @@
+:root {
+  --fontsize-p: 1.2rem;
+  /* --fontsize-nav: 1.6rem; */
+  /* --typing-font: 3rem; */
+}
+
 * {
   font-family: 'Roboto';
   margin: 0;
@@ -5,7 +11,7 @@
 
 p {
   margin: 8px 0;
-  font-size: 18px;
+  font-size: var(--fontsize-p)
 }
 hr {
   margin: 24px 0;
@@ -52,9 +58,16 @@ ul {
   align-items: center;
 }
 
-.main {
+#main {
   margin-bottom: 24px;
-  margin: 0 8px;
+  /* margin: 0; */
+  padding: 0 6px;
+  /* padding-lef */
+}
+
+.main-paper {
+  padding: 24px;
+  margin: 24px 0;
 }
 
 .single-playlist-div {
@@ -94,7 +107,7 @@ ul {
 }
 
 
-#wesbite-feature-p {
+#webite-feature-p {
   margin-bottom: 0px;
 }
 
@@ -105,7 +118,7 @@ ul {
 }
 
 .website-feature-list li {
-  font-size: 18px;
+  font-size: var(--fontsize-p)
 }
 
 .accordion-div {
@@ -119,4 +132,34 @@ ul {
 
 .accordion-li {
   font-style: italic
+}
+
+
+@media all and (max-width: 1000px) {
+  :root {
+    /* --fontsize-nav: 1.2rem; */
+    /* --typing-font: 2rem; */
+    --fontsize-p: 1.05rem;
+  }
+
+  .main-paper {
+    padding: 12px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  :root {
+    /* --fontsize-nav: 1.2rem;
+    /* --sidebar-flex: 0; */
+    /* --typing-font: 2rem; */
+    --fontsize-p: 0.9rem;
+  }
+
+  .main-paper {
+    padding: 6px;
+  }
+
+  #main {
+    padding: 0 3px;
+  }
 }
