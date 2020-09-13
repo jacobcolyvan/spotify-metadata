@@ -55,7 +55,6 @@ const TopArtists = () => {
 
   return (
     <div>
-      
       <SelectOptions 
         timeRange={timeRange}
         setTimeRange={setTimeRange}

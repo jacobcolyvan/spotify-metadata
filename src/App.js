@@ -27,7 +27,7 @@ const App = () => {
   const [playlist, setPlaylist] = useState(undefined);
 
   return (
-    <div className=''>
+    <div>
       <Router>
         <UserContext.Provider value={{ token, setToken, isMobile, playlist, setPlaylist }}>
           <NavBar 

@@ -26,7 +26,7 @@ const Tracks = ({ tracks, artistData, audioFeatures }) => {
 
             {(artistData[index].data.genres.length > 0) && (
               <AccordionDetails style={{ padding: '8px 16px 0 16px' }}>
-                <Typography variant='body2'>
+                <Typography component={'span'} variant='body2'>
                   <div className='accordion-div'>
                     <li className='accordion-li li'><b>Genres:</b></li>
                     <li className='accordion-li2 li'>{artistData[index].data.genres.join(', ')}.</li>
@@ -36,7 +36,7 @@ const Tracks = ({ tracks, artistData, audioFeatures }) => {
             )}
 
               <AccordionDetails style={{ padding: '8px 16px 0 16px' }}>
-                <Typography variant='body2'>
+                <Typography component={'span'} variant='body2'>
                   <div className='accordion-div'>
                     <li className='accordion-li li'><b>Artist Popularity Rating:</b></li>
                     <li className='accordion-li2 li'>{artistData[index].data.popularity}</li>

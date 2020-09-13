@@ -1,5 +1,5 @@
 :root {
-  --fontsize-p: 1.2rem;
+  /* --fontsize-p: 1.2rem; */
   /* --fontsize-nav: 1.6rem; */
   /* --typing-font: 3rem; */
 }
@@ -150,7 +150,7 @@ ul {
     /* --fontsize-nav: 1.2rem;
     /* --sidebar-flex: 0; */
     /* --typing-font: 2rem; */
-    --fontsize-p: 1rem;
+    --fontsize-p: 1.2rem;
   }
 
   .main-paper {
