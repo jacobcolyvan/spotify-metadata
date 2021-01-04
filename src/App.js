@@ -8,11 +8,13 @@ import {
 } from 'react-router-dom';
 import './App.css';
 
+import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import TopArtists from './pages/TopArtists';
 import TopTracks from './pages/TopTracks';
 import Playlists from './pages/Playlists';
-import NavBar from './components/NavBar';
+import About from './pages/About';
+
 
 import { useTheme } from '@material-ui/core/styles';
 import { Container, useMediaQuery} from '@material-ui/core';
@@ -50,6 +52,7 @@ const App = () => {
                 <Route exact path='/top-artists' component={TopArtists} />
                 <Route exact path='/top-tracks' component={TopTracks} />
                 <Route path='/playlists' component={Playlists} />
+                <Route exact path='/about' component={About} />
 
                 <Redirect to='/' />
               </Switch>

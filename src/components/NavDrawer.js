@@ -48,7 +48,6 @@ const NavDrawer = ({
                 setDrawer(false)
                 if (button.name === 'Playlists') setPlaylist(undefined);
                 history.push(button.link);
-                
               }}
               className={classes.button}
               key={`button${index}`}

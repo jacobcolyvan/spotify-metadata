@@ -38,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
 const pageButtons = [
   { name: 'Top Artists', link: '/top-artists' },
   { name: 'Top Tracks', link: '/top-tracks' },
-  { name: 'Playlists', link: '/playlists' }
+  { name: 'Playlists', link: '/playlists' },
+  { name: 'About', link: '/about'}
 ];
 
 const NavBar = ({ currentPage, setCurrentPage }) => {
@@ -66,11 +67,13 @@ const NavBar = ({ currentPage, setCurrentPage }) => {
             <Typography variant='h3' className={classes.title} style={{ color: 'white' }}>
               Metadata
             </Typography>
+
             {!isMobile && token && (
               <Typography variant='h5'>
                 {pageButtons[currentPage].name}
               </Typography>
             )}
+
             {token && (
               <Button onClick={toggleDrawer(true)}>
                 <MenuIcon style={{ fill: 'white'}}/>
