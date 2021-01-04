@@ -13,6 +13,7 @@ import TopArtists from './pages/TopArtists';
 import TopTracks from './pages/TopTracks';
 import Playlists from './pages/Playlists';
 import NavBar from './components/NavBar';
+
 import { useTheme } from '@material-ui/core/styles';
 import { Container, useMediaQuery} from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
@@ -30,8 +31,8 @@ const App = () => {
     <div>
       <Router>
         <UserContext.Provider value={{ token, setToken, isMobile, playlist, setPlaylist }}>
-          <NavBar 
-            currentPage={currentPage} 
+          <NavBar
+            currentPage={currentPage}
             setCurrentPage={setCurrentPage}
           />
           <Container maxWidth='md' id='main'>

@@ -62,16 +62,16 @@ const Playlist = ({ playlist }) => {
         <>
           <AudioFeatures
             trackIds={trackIds}
-            setAudioFeatures={setAudioFeatures} 
+            setAudioFeatures={setAudioFeatures}
           />
           <ArtistGenres
             artistHREFs={artistHREFs}
-            setArtistData={setArtistData} 
+            setArtistData={setArtistData}
           />
           <Tracks
             tracks={tracks}
             artistData={artistData}
-            audioFeatures={audioFeatures} 
+            audioFeatures={audioFeatures}
           />
         </>
       )}

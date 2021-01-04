@@ -11,7 +11,7 @@ const Playlists = () => {
   const history = useHistory();
   const { token, playlist, setPlaylist } = useContext(UserContext);
   const [playlists, setPlaylists] = useState(undefined);
-  
+
   const [playlistTotalAmount, setPlaylistTotalAmount] = useState(undefined)
   const [playlistSearchOffset, setPlaylistSearchOffset] = useState(0)
 
@@ -27,7 +27,6 @@ const Playlists = () => {
           }
         });
 
-        // console.log(response.data.items)
         setPlaylistTotalAmount(response.data.total)
         setPlaylists(response.data.items);
       } catch (err) {
@@ -64,8 +63,8 @@ const Playlists = () => {
             <hr/>
           </>
         )}
-        
-        
+
+
 
         {playlists && (
           <ul>
@@ -85,7 +84,7 @@ const Playlists = () => {
         )}
 
         {playlistTotalAmount && (
-          <PageButtons 
+          <PageButtons
             playlistTotalAmount={playlistTotalAmount}
             offset={playlistSearchOffset}
             setOffset={setPlaylistSearchOffset}
