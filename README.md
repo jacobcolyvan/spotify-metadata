@@ -1,13 +1,12 @@
 # Spotify Metadata
 <b><ins>Deployed at:</ins></b>  https://spotify-metadata.netlify.app/. <br>
 
-Spotify has some very interesting data that they've got going on in their backend (over 4000+ microgenres). This is a website that lets you explore that data. <br>
+Spotify has some very interesting data that they've got going on in their backend (over 4000 micro-genres!). This is a website that lets you explore that data. <br>
 The site calls on the Spotify API to display playlists, top tracks and top artists of a logged-in user across different time-periods, as well as the associated metadata for each.
 
-It is a conversion of a previous project from Vanilla JS to React. The original project can be found in the project branch called ```vanilla-javascript```. <br>
+It is built with React, and styled using Material-UI. Requests are done using axios, and Spotify-auth is done completely client-side using the <a href='https://developer.spotify.com/documentation/general/guides/authorization-guide/'>Client Credentials Authorisation Flow</a>.
 
-It is built with React, and styled using Material-UI. Requests are done using axios, and Spotify-authorisation is done completely client-side using the <a href='https://developer.spotify.com/documentation/general/guides/authorization-guide/'>Client Credentials Authorisation Flow</a>.
-
+Note that this site is a conversion of a previous project from Vanilla JS to React. The original project can be found in the project branch called ```vanilla-javascript```. <br>
 
 <hr>
 
@@ -21,12 +20,12 @@ It is built with React, and styled using Material-UI. Requests are done using ax
 <hr>
 
 ### Setup
-If you want to set up your own copy of this site, run ```npm i``` after cloning, and create a ```.env``` file in the root directory (or set it in your local environment) with your Spotify ClientID and and a callback URI, with the names:
+If you want to set up your own copy of this site, run ```npm i``` after cloning, and create a ```.env``` file in the root directory (or set it in your local environment) with your Spotify ClientID and a callback URI, with the names:
 
 - ```REACT_APP_SPOTIFY_CLIENT_ID2```, and
 - ```REACT_APP_SPOTIFY_CALLBACK_URI```.
 
-Your Spotify ClientID can be found by registering your app.
+Your Spotify ClientID can be found by <a href='https://developer.spotify.com/documentation/general/guides/app-settings/#register-your-app'>registering your app</a>.
 
 <hr>
 
@@ -34,6 +33,7 @@ If interested, other Spotify-based sites that I've written are:
 * <ins>Seed Playlists</ins> – <a href=https://github.com/jacobcolyvan/seed-playlist target="_blank"> Github</a>, <a href=https://seed-playlists.netlify.app/ target="_blank">deployed</a>.
 * <ins>Mix Master</ins> – <a href="https://github.com/jacobcolyvan/mix-master" target="_blank"> Github</a>, <a href="https://mix-master.netlify.app/" target="_blank">deployed</a>.
 
-<br>
+<hr>
+
 Otherwise, <br>
 <i>Happy Coding</i> and <i>Stay Safe</i>.
