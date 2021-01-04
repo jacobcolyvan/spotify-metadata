@@ -2,11 +2,12 @@
 <b><ins>Deployed at:</ins></b>  https://spotify-metadata.netlify.app/. <br>
 
 Spotify has some very interesting data that they've got going on in their backend (over 4000+ microgenres). This is a website that lets you explore that data. <br>
-The site calls on the Spotify API to display playlists, top tracks, top artists of a logged-in user across different time-periods, as well as the associated metadata for each.
+The site calls on the Spotify API to display playlists, top tracks and top artists of a logged-in user across different time-periods, as well as the associated metadata for each.
 
 It is a conversion of a previous project from Vanilla JS to React. The original project can be found in the project branch called ```vanilla-javascript```. <br>
 
 It is built with React, and styled using Material-UI. Requests are done using axios, and Spotify-authorisation is done completely client-side using the <a href='https://developer.spotify.com/documentation/general/guides/authorization-guide/'>Client Credentials Authorisation Flow</a>.
+
 
 <hr>
 
