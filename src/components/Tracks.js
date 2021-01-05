@@ -25,26 +25,26 @@ const Tracks = ({ tracks, artistData, audioFeatures }) => {
               </AccordionSummary>
 
             {(artistData[index].data.genres.length > 0) && (
-              <AccordionDetails style={{ padding: '8px 16px 0 16px' }}>
+              <AccordionDetails style={{ padding: '0 16px' }}>
                 <Typography component={'span'} variant='body2'>
                   <div className='accordion-div'>
-                    <li className='accordion-li li'><b>Genres:</b></li>
+                    <li className='accordion-li li'>Genres:</li>
                     <li className='accordion-li2 li'>{artistData[index].data.genres.join(', ')}.</li>
                   </div>
                 </Typography>
               </AccordionDetails>
             )}
 
-              <AccordionDetails style={{ padding: '8px 16px 0 16px' }}>
+              <AccordionDetails style={{ padding: '0 16px' }}>
                 <Typography component={'span'} variant='body2'>
                   <div className='accordion-div'>
-                    <li className='accordion-li li'><b>Artist Popularity Rating:</b></li>
-                    <li className='accordion-li2 li'>{artistData[index].data.popularity}</li>
+                    <li className='accordion-li li'>Artist Popularity Rating:</li>
+                    <li className='accordion-li2 li'>{artistData[index].data.popularity}.</li>
                   </div>
                 </Typography>
               </AccordionDetails>
 
-              <AccordionDetails style={{ padding: '0 8px 16px 16px' }}>
+              <AccordionDetails style={{ padding: '12px 8px 16px 16px' }}>
                 <ul>
                   {Object.keys(audioFeatures[index]).map(
                     (feature, index2) =>

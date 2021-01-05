@@ -126,10 +126,9 @@ ul {
 
 .accordion-li {
   margin-right: 10px;
-}
-
-.accordion-li {
-  font-style: italic
+  /* font-style: italic */
+  text-decoration: underline;
+  text-shadow : 0 0 0;
 }
 
 
@@ -137,7 +136,8 @@ ul {
   :root {
     /* --fontsize-nav: 1.2rem; */
     /* --typing-font: 2rem; */
-    --fontsize-p: 1.1rem;
+
+    /* --fontsize-p: 1.1rem; */
   }
 
   .main-paper {
@@ -150,7 +150,8 @@ ul {
     /* --fontsize-nav: 1.2rem;
     /* --sidebar-flex: 0; */
     /* --typing-font: 2rem; */
-    --fontsize-p: 1.2rem;
+
+    /* --fontsize-p: 1.2rem; */
   }
 
   .main-paper {
