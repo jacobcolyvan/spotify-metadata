@@ -1,7 +1,18 @@
 import React, { useEffect, useContext } from 'react';
-import SpotifyAuth from '../components/SpotifyAuth';
 import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
+
 import UserContext from '../context/UserContext';
+
+import Info from '../components/Info'
+import SpotifyAuth from '../components/SpotifyAuth';
+
+const Break = styled.br`
+  margin-top: 0px;
+  margin-bottom: 6px;
+`
+
+
 
 const Home = ({ location, setCurrentPage }) => {
   const history = useHistory();
@@ -17,15 +28,9 @@ const Home = ({ location, setCurrentPage }) => {
 
   return (
     <div>
-      {/* <p>Spotify is the biggest music streaming website in the world.</p> */}
-      <p id='wesbite-feature-p'>This is a website to:</p>
-      <ul className='website-feature-list'>
-        <li>Check out your Spotify listening habits. </li>
-        <li>See genres, popularity and track features for the music you listen to.</li>
-        <li>Exploring your top-tracks, top-artists, and playlists.</li>
-      </ul>
+      <Info />
 
-      <br/>
+      <Break />
       <p><i>Authorise Spotify to start: </i></p>
       <SpotifyAuth />
     </div>
